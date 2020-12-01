@@ -1,0 +1,16 @@
+@import 'Var.scss';
+
+.categories {
+  position: relative;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    color: $primary-color;
+  }
+
+  &:hover .sub {
+    display: block;
+    transform: translatey(0px);
+    filter: drop-shadow(0px 0px 16px #c9c8c8);
+  }
+}
