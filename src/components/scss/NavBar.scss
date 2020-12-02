@@ -1,0 +1,90 @@
+@import 'Var.scss';
+
+
+.categories {
+  position: relative;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    color: $primary-color;
+  }
+  &:hover .menu-ul-sub {
+    display: block;
+    transform: translatey(0px);
+    filter: drop-shadow(0px 0px 16px #c9c8c8);
+  }
+}
+
+.container{
+&-nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+&nav{
+  background: #f2f2f2;
+}
+}
+
+.menu {
+  display: flex;
+  &-a{
+    color: #222;
+    text-decoration: none;
+    position: relative;
+    transition: ease 0.6s;
+    &::before {
+      content: '';
+      position: absolute;
+      background: #d84727;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 0%;
+      transition: ease 0.3s;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+    &:hover {
+      color: #d84727;
+      text-decoration: none;
+    }
+  }
+  &-ul{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    li {
+      list-style: none;
+    }
+    &-sub{
+      //display: none;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 15px;
+      transform: translatey(-150px);
+      z-index: -10;
+      transition: ease 0.6s;
+      li {
+        margin: 10px 0px;
+        color: #222;
+        a {
+          color: #222;
+          text-decoration: none;
+          &:hover {
+            color: #d84727;
+          }
+        }
+      }
+   }
+}}
+
+
+
+
+

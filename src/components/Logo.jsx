@@ -1,34 +1,22 @@
-//STYLED COMPONENTS
-import styled from 'styled-components';
+//STYLES SCSS
+import './scss/Logo.scss';
 
 //REACT ICONS
 import { FiCpu } from 'react-icons/fi';
 
-//COMPONENTS STYLED
-const HardLogo = styled.h1`
-  color: #d84727;
-  font-family: 'Black Han Sans';
-  font-size: 1.9rem;
-`;
-const SpanStore = styled.span`
-  color: #222;
-  font-family: 'Inter';
-  margin: 0;
-`;
-
 //COMPONENT LOGO
 const Logo = () => {
   return (
-    <div className='col-12 col-md-4'>
-      <HardLogo>
+    <div className='order-1 col-8 order-md-1 col-md-4'>
+      <h1 className='logo-hard'>
         Hard
-        <SpanStore>
+        <span className='logo-store'>
           Store
           <FiCpu
             style={{ color: '#D84727', margin: '0px 5px', fontSize: '1rem' }}
           />
-        </SpanStore>
-      </HardLogo>
+        </span>
+      </h1>
     </div>
   );
 };

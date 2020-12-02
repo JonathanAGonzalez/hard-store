@@ -1,5 +1,16 @@
-.Icon {
-  font-size: 1.6rem;
-  color: #d84727;
-  cursor: pointer;
+.cart {
+  &-icon {
+    font-size: 1.6rem;
+    color: #d84727;
+    cursor: pointer;
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 45px;
+    @media (max-width: 414px) {
+      padding-right: 0px;
+    }
+  }
 }

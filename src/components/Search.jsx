@@ -2,43 +2,21 @@
 import { FaSearch } from 'react-icons/fa';
 
 //SCSS
-import './scss/SearchStyle.scss';
-
-//STYLE COMPONENTS
-import styled from 'styled-components';
-
-//COMPONENTS STYLED
-const ContainerSearch = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-const ContainerInput = styled.label`
-  position: relative;
-  width: 100%;
-  font-family: 'Inter';
-`;
-const InputSearch = styled.input`
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  width: 100%;
-  transition: ease.6s;
-  &:focus {
-    filter: drop-shadow(0px 0px 10px #2222);
-    color: #d84727;
-  }
-`;
+import './scss/Search.scss';
 
 //COMPONENT SEARCH
 const Search = () => {
   return (
-    <ContainerSearch className='col-12 col-md-4 '>
-      <ContainerInput>
-        <InputSearch type='text' placeholder='Busqueda....' />
+    <div className='container-search order-3 col-12 order-md-2 col-md-4'>
+      <label className='container-input'>
+        <input
+          className='input-search'
+          type='text'
+          placeholder='Busqueda....'
+        />
         <FaSearch className='SearchIco' />
-      </ContainerInput>
-    </ContainerSearch>
+      </label>
+    </div>
   );
 };
 

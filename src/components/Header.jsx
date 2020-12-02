@@ -6,7 +6,7 @@ import CartPerfil from './CartPerfil';
 //COMPONENTS HEADER
 const Header = () => {
   return (
-    <div className='row justify-content-between'>
+    <div className='row d-flex justify-content-between'>
       <Logo />
       <Search />
       <CartPerfil />
