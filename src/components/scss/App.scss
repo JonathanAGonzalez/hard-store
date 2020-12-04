@@ -1,0 +1,18 @@
+@import './Var.scss';
+
+.container{
+    
+    &-header{
+        background: $primary-background-color;
+        padding: 20px;
+        border-bottom: 1px solid #2222;
+        overflow: hidden;
+    }
+    &-navbar{
+        background: $primary-background-color;
+        font-family: $primary-font;
+    }
+    &-app{
+        position: relative;
+    }
+}

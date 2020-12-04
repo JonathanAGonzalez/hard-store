@@ -1,28 +1,46 @@
-import React from 'react';
 import Header from './components/Header';
-import styled from 'styled-components';
 import NavBar from './components/NavBar';
-const ContainerHeader = styled.div`
-  background: #f2f2f2;
-  padding: 20px;
-  border-bottom: 1px solid #2222;
-`;
-const ContainerNavbar = styled.div`
-  background: #f2f2f2;
-`;
+import CartWidget from './components/CartWidget';
+import {useState} from 'react';
+import './components/scss/App.scss';
+
+
+
+
+
 function App() {
+
+  const [widget, setWidget] = useState(false);
+
+ 
   return (
-    <div className='container-fluid'>
+    <div className='container-app container-fluid'>
       {/* HEADER */}
       <div className='row'>
-        <ContainerHeader className='col-12'>
-          <Header />
-        </ContainerHeader>
+      
+          
+        <div className='container-header col-12'>
+          <Header 
+          widget= {widget}
+          setWidget={setWidget}
+          />
+           
+          
+        </div>
+        {
+          widget && <div className="row">
+          <CartWidget setWidget={setWidget} widget= {widget} />  
+        </div> 
+        }
         {/* NAVBAR */}
-        <ContainerNavbar className='col-12'>
-          <NavBar />
-        </ContainerNavbar>
-      </div>
+        <div className='container-navbar col-12'>
+          <NavBar 
+          offers= 'Offers' 
+          categories='Categories' 
+          contact= 'Contact' 
+          />
+        </div>        
+      </div>     
     </div>
   );
 }

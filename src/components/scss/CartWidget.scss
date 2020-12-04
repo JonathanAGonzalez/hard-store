@@ -1,0 +1,114 @@
+@import "./Var.scss";
+
+//CSS
+.container {
+  font-family: $primary-font;
+  &-widget {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 17vw;
+    background: $primary-background-color;
+    text-align: center;
+    filter: drop-shadow(0px 0px 16px $primary-shados-box);
+    overflow-y: scroll;
+    transition: all ease 1s;
+    z-index: 1;
+    &-header {
+      position: relative;
+      &-h4 {
+        margin: 10px 0;
+      }
+      &-back {
+        color: $primary-color;
+        position: absolute;
+        right: 20px;
+        font-size: 1.4rem;
+        animation: arrow 1s ease-in-out infinite;
+        //transform: rotate(180deg);
+        cursor: pointer;
+    }
+    }
+  }
+  &-product {
+    display: flex;
+    flex-direction: flex-end;
+  }
+}
+
+.card {
+  &-w {
+    &-product {
+      &-container {
+        &-img {
+          width: 100px;
+          margin: 0px 10px;
+        }
+        &-data {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      &-data {
+        position: relative;
+        display: flex;
+        width: 100%;
+        text-align: start;
+        &-title {
+          margin: 0;
+          font-weight: bold;
+          text-decoration: underline;
+        }
+        &-price {
+          font-family: $primary-font;
+          font-weight: bold;
+          color: $primary-color;
+        }
+      }
+      &-ico {
+        &-remove {
+          position: absolute;
+          right: 0;
+          top: 22px;
+          width: 70px;
+          color: $primary-color;
+          font-size: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+//Media queries
+@media (max-width: 1279px) {
+  .container {
+    &-widget {
+      width: 37vw;
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .container {
+    &-widget {
+      width: 63vw;
+    }
+  }
+}
+
+
+//Keyframes
+  @keyframes arrow {
+   
+    0%,100% {
+      transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 0);
+      }
+  }
+  
