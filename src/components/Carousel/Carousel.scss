@@ -1,0 +1,80 @@
+@import "../scss/Var.scss";
+.slide {
+  position: relative;
+  animation: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.carousel-bg-change {
+  //animation: background-change 2s linear infinite alternate both;
+  background: url("../../assets/images/slide/Mother/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  border-radius: 15px;
+}
+
+.carousel-bg-change2 {
+  background: url("../../assets/images/slide/Mother/bg2.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  border-radius: 15px;
+}
+.carousel-bg3 {
+  background: pink;
+  background-position: center;
+  background-size: cover;
+}
+
+.carousel-container-image {
+  height: 30vh;
+}
+
+.carousel-image {
+  margin: 30px 114px;
+}
+
+.data {
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 16px #222222);
+  position: absolute;
+  padding: 30px;
+  bottom: 0px;
+  left: 10px;
+  width: 80%;
+  &-title {
+    color: $primary-color;
+    text-shadow: 1px 1px 1px #222222;
+  }
+  &-small {
+    color: $primary-color-font;
+    text-shadow: 1px 1px 1px #222222;
+  }
+  &-button {
+    margin: 15px 0px;
+    display: block;
+    @include button-default;
+  }
+}
+
+@keyframes background-change {
+  0% {
+    background: #ffffff;
+  }
+  100% {
+    background: #b3b3b3;
+  }
+}
+
+@keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

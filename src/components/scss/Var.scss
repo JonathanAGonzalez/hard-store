@@ -1,5 +1,37 @@
 $primary-color: #d84727;
 $primary-background-color: #f2f2f2;
-$primary-font: 'Inter';
-$primary-font-logo : 'Black Han Sans';
-$primary-shados-box : #c8c6c6;
+$secondary-color-background: #222222;
+$primary-font: "Inter";
+$primary-font-logo: "Black Han Sans";
+$primary-color-font: #f2f2f2;
+$primary-shados-box: #c8c6c6;
+$animation-center: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  both;
+$animation-menu: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+
+@mixin button-default {
+  border: none;
+  background: $primary-color;
+  color: $primary-color-font;
+  padding: 20px 20px;
+  border-radius: 15px;
+  transition: 0.6s all;
+  &:hover {
+    background: $primary-background-color;
+    color: $primary-color;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scale-in-ver-center {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

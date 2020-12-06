@@ -1,4 +1,4 @@
-const ListNavBar = () => {
+const ListNavBar = ({children}) => {
   return (
     <ul className="menu-ul">
       <li>
@@ -12,6 +12,7 @@ const ListNavBar = () => {
           <li>
             <a href="/">Accesories </a>
           </li>
+          {children}
         </ul>
       </li>
     </ul>
