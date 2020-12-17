@@ -1,6 +1,16 @@
 import ItemCount from "./ItemCount";
+import Swal from "sweetalert2";
 import "./Product.scss";
 const ProductItem = ({ image, title, characteristic }) => {
+  const onAdd = (qty) => {
+    Swal.fire({
+      title: "Exito!",
+      text: `Agregaste al carrito ${qty} productos`,
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
+  };
+
   return (
     <div className="col-md-4 mb-3">
       <div className="card">
@@ -18,7 +28,7 @@ const ProductItem = ({ image, title, characteristic }) => {
               <li className="card-text">{characteristic.fuente}</li>
             </ol>
           )}
-          <ItemCount stock={5} initial={1} />
+          <ItemCount stock={5} initial={1} onAdd={onAdd} />
         </div>
       </div>
     </div>

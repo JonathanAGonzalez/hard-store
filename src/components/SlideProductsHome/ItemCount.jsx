@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(1);
 
   const addProduct = () => {
@@ -28,21 +28,28 @@ const ItemCount = ({ stock, initial }) => {
   };
 
   return (
-    <div className="card-count d-flex">
-      <button
-        className="card-count-btn"
-        onClick={() => addProduct(quantity + 1)}
-      >
-        +
-      </button>
-      <span className="card-count-qty">{quantity}</span>
-      <button
-        className="card-count-btn"
-        onClick={() => removeProduct(quantity - 1)}
-      >
-        -
-      </button>
-    </div>
+    <>
+      <div className="card-count d-flex">
+        <button
+          className="card-count-btn"
+          onClick={() => addProduct(quantity + 1)}
+        >
+          +
+        </button>
+        <span className="card-count-qty">{quantity}</span>
+        <button
+          className="card-count-btn"
+          onClick={() => removeProduct(quantity - 1)}
+        >
+          -
+        </button>
+      </div>
+      <div>
+        <button className="card-count-btn mt-3" onClick={() => onAdd(quantity)}>
+          Agregar Producto
+        </button>
+      </div>
+    </>
   );
 };
 
