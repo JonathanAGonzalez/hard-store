@@ -1,11 +1,12 @@
 import ListNavBar from "./ListNavBar";
 import { useState } from "react";
+
 import CarWidget from "../components/CartWidget";
 //SCSS
 import "./scss/NavBar.scss";
 
 //COMPONENT NAVBAR
-const NavBar = ({ categories, offers, contact, setWidget, widget }) => {
+const NavBar = ({ categories, offers, contact, widget, setWidget }) => {
   const [navCategories, setNavCategories] = useState(false);
 
   return (

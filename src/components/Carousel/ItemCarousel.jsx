@@ -1,4 +1,3 @@
-import image2 from "../../assets/images/slide/Mother/mother.png";
 const ItemCarousel = ({ title, description, btn }) => {
   return (
     <div className="carousel-item carousel-bg-change d-block">

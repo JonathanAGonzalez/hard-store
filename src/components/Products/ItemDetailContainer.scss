@@ -1,8 +1,40 @@
 @import "../scss/Var.scss";
 
-.product-slide-container {
-  background: crimson;
-  border-radius: 15px;
-  height: 30vh;
-  animation: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.card {
+  background: url("../../assets/images/products/blockF.jpg");
+  border: none !important;
+  text-align: center;
+  &-img {
+    width: 175px !important;
+    margin: auto;
+    &-overlay {
+      font-family: $primary-font;
+      color: $color-font-gray;
+    }
+  }
+  &-text {
+    &-price {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0px 0px 10px;
+      color: $color-font-cian;
+    }
+  }
+  &-title {
+    color: $color-font-cian;
+  }
+  &-btn {
+    color: $color-font-cian;
+    border: none;
+    background: none;
+    border: 1px solid $primary-btn-b;
+    padding: 10px 45px;
+    margin: 5px;
+    transition: ease 0.6s;
+    &:hover {
+      background: $primary-btn-b;
+      color: $color-font-gray;
+    }
+  }
 }

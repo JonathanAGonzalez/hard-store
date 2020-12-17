@@ -1,11 +1,15 @@
+import {useState} from 'react';
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Slide from "./components/Carousel/Slide";
+import rtx2060  from './assets/images/products/rtx2060.png'
+import ddr4 from './assets/images/products/ddr4.png'
 import ItemDetailContainer from "./components/Products/ItemDetailContainer";
-import { useState } from "react";
+import ProductsSlide from './components/SlideProductsHome/ProductsSlide'
 import "./components/scss/App.scss";
 
 function App() {
+
   const [widget, setWidget] = useState(false);
 
   return (
@@ -13,26 +17,52 @@ function App() {
       {/* HEADER */}
       <div className="row">
         <div className="container-header col-12">
-          <Header widget={widget} setWidget={setWidget} />
+          <Header widget={widget} setWidget={setWidget}/>
         </div>
         {/* NAVBAR */}
         <div className="container-navbar col-12">
           <NavBar
             offers="Offers"
             categories="Categories"
-            contact="Contact"
-            widget={widget}
-            setWidget={setWidget}
+            contact="Contact"   
+            widget = {widget}    
+            setWidget = {setWidget}     
           />
         </div>
       </div>
       {/* MAIN */}
-      <div className="row justify-content-center">
+      <div className="row justify-content-center ">
         {/* SLIDE & PRODUCTS*/}
-        <Slide />
-        <ItemDetailContainer title='Placa de video' description='Amd radeon xr580' price='$1023'/>
-        <ItemDetailContainer title='Placa de sonido' description='4 canales' price='$3023'/>
+        <Slide 
+        slide1= 'Procesador Ryzen 7'
+        slide2= 'Devastator GC-550'
+        slide3= 'Cuotas Sin Interes!'
+        slidebtn3= 'VER TARJETAS'
+        />
+        <ItemDetailContainer
+          title="Gigabyte RTX 2060"
+          description="GeForce RTX™ 2060
+          Integrated with 6GB GDDR6"
+          price="$1023"
+          image= {rtx2060}
+        />
+        <ItemDetailContainer
+          title="Memory DDR4"
+          description="ADATA PC4-24000 XPG GAMER D50 RGB GOLD"
+          price="$3023"
+          image = {ddr4}
+        />
       </div>
+      
+
+     <ProductsSlide />
+
+
+
+
+
+
+      
     </div>
   );
 }

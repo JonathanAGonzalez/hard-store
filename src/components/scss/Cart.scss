@@ -3,21 +3,19 @@
     font-size: 1.6rem;
     color: #d84727;
     cursor: pointer;
-    position:relative;
+    position: relative;
   }
   &-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 45px;
   }
 }
 
-
 @media (max-width: 414px) {
-  .cart{
-    &-icon{
-padding-right: 0px;
+  .cart {
+    &-icon {
+      padding-right: 0px;
     }
-      }
-    }
+  }
+}

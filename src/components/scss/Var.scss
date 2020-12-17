@@ -4,10 +4,20 @@ $secondary-color-background: #222222;
 $primary-font: "Inter";
 $primary-font-logo: "Black Han Sans";
 $primary-color-font: #f2f2f2;
+$color-font-gray: #222222;
+$color-font-orange: #d84727;
+$color-font-cian: #04ffff;
 $primary-shados-box: #c8c6c6;
 $animation-center: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
   both;
 $animation-menu: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+//COLOR VARIABLE BTN CARD
+$primary-btn-b: #04ffff;
+$primary-card-white: #f2f2f2;
+$color-card-white: #f2f2f2;
+$color-card-gray: #222222;
+$color-card-orange: #d84727;
+$color-card-cian: #04ffff;
 
 @mixin button-default {
   border: none;
@@ -22,7 +32,19 @@ $animation-menu: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
     transform: translateY(-5px);
   }
 }
-
+@mixin button-cian {
+  background: none;
+  border: 2px solid $primary-btn-b;
+  color: $color-font-cian;
+  padding: 10px 45px;
+  box-shadow: 1px 1px 25px #00ffb7;
+  transition: ease 0.6s;
+  &:hover {
+    border: 2px solid $primary-color;
+    color: #f2f2f2;
+    box-shadow: 1px 1px 25px $primary-color;
+  }
+}
 @keyframes scale-in-ver-center {
   0% {
     -webkit-transform: scaleY(0);

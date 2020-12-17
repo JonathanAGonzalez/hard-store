@@ -1,44 +1,50 @@
 import "./Carousel.scss";
-import image from "../../assets/images/slide/Mother/mother.png";
-const Slide = ({ title, description, btn }) => {
+import image from "../../assets/images/slide/1.jpg";
+import image2 from "../../assets/images/slide/2.jpg";
+import image3 from "../../assets/images/slide/3.jpg";
+
+const Slide = ({ slide1, slide2, slide3, slidebtn3 }) => {
   return (
     <div
-      id="carouselExampleControls"
-      className="carousel slide mt-3 col-12 col-md-4"
+      id="carouselExampleIndicators"
+      className="carousel slide mt-3 col-12 col-md-12 col-lg-6"
       data-ride="carousel"
     >
+      <ol className="carousel-indicators">
+        <li
+          data-target="#carouselExampleIndicators"
+          data-slide-to={0}
+          className="active"
+        />
+        <li data-target="#carouselExampleIndicators" data-slide-to={1} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={2} />
+      </ol>
       <div className="carousel-inner">
-        <div className="carousel-item carousel-bg-change ">
-          <div className="carousel-container-image">
-            <img src={image} className="carousel-image" alt="Slide1" />
-          </div>
-          <div className="data">
-            <h3 className="data-title">MotherBoard AMD</h3>
-            <small className="data-small">
-              AMD B550 Preparada para los procesadores AMD Ryzen™ de 3.ª
-              generación y posteriores.*
-            </small>
-            <button className="data-button">Comprar</button>
+        <div className="carousel-item active">
+          <img className="d-block w-100" src={image} alt="First slide" />
+          <div className="carousel-caption d-none d-md-block">
+            <h5>{slide1}</h5>
+            <button className="carousel-btn">VER PRODUCTO</button>
           </div>
         </div>
-        <div className="carousel-item carousel-bg-change2 active ">
-          <div className="carousel-container-image">
-            <img src={image} className="carousel-image" alt="Slide2" />
+        <div className="carousel-item">
+          <img className="d-block w-100" src={image2} alt="Second slide" />
+          <div className="carousel-caption  d-none d-md-block">
+            <h5>{slide2}</h5>
+            <button className="carousel-btn">VER PRODUCTO</button>
           </div>
-          <div className="data">
-            <h3 className="data-title">MotherBoard INTEL</h3>
-            <small className="data-small">
-              AM4 INTEL Preparada para los procesadores INTEL AM4™ de 4.ª
-              generación y posteriores.*
-            </small>
-            <button className="data-button">Comprar</button>
+        </div>
+        <div className="carousel-item">
+          <img className="d-block w-100" src={image3} alt="Third slide" />
+          <div className="carousel-caption d-none d-md-block">
+            <h5>{slide3}</h5>
+            <button className="carousel-btn">{slidebtn3}</button>
           </div>
         </div>
       </div>
-
       <a
         className="carousel-control-prev"
-        href="#carouselExampleControls"
+        href="#carouselExampleIndicators"
         role="button"
         data-slide="prev"
       >
@@ -47,7 +53,7 @@ const Slide = ({ title, description, btn }) => {
       </a>
       <a
         className="carousel-control-next"
-        href="#carouselExampleControls"
+        href="#carouselExampleIndicators"
         role="button"
         data-slide="next"
       >

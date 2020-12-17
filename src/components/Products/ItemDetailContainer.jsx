@@ -1,10 +1,13 @@
 import "./ItemDetailContainer.scss";
-const ItemDetailContainer = ({ title, description, price }) => {
+const ItemDetailContainer = ({ title, description, price, image }) => {
   return (
-    <div className=" mt-3 mx-4 col-md-3 product-slide-container">
-      <h2 className="product-slide-title">{title}</h2>
-      <small className="product-slide-description">{description}</small>
-      <p className="product-slide-price">{price}</p>
+    <div className="card bg-dark text-white m-3 col-10 col-md-5 col-lg-2">
+      <img className="card-img my-4" src={image} alt="Imagen Card" />
+      <div className="card-container-data">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{description}</p>
+        <button className="card-btn mb-3">Comprar</button>
+      </div>
     </div>
   );
 };
