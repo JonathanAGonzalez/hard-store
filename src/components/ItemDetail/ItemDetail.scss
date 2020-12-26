@@ -1,0 +1,25 @@
+@import "../scss/Var.scss";
+
+.item {
+  &-detail {
+    &-price {
+      color: $color-font-orange;
+      font-size: 2rem;
+    }
+    &-ul {
+      padding: 0;
+    }
+    &-li {
+      list-style: none;
+    }
+    &-btn {
+      @include button-cian;
+      border-radius: 5px;
+      color: $color-font-orange;
+      &:hover {
+        color: $color-font-gray;
+        transform: translateY(-5px);
+      }
+    }
+  }
+}

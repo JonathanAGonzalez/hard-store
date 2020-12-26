@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import ProductItem from "./ProductItem";
-import cpuGamer from "../../assets/images/products/cpugamer.jpg";
-import data from "../../data/products.js";
+import data from "../../data/productsNew.js";
 import Spinner from "../Spinner/Spinner";
 
 const ProductsSlide = () => {
@@ -68,9 +67,11 @@ const ProductsSlide = () => {
                       {items.map((product) => (
                         <ProductItem
                           key={product.id}
-                          image={cpuGamer}
+                          image={product.imagen}
                           title={product.nombre}
                           characteristic={product.description}
+                          id={product.id}
+                          precio={product.precio}
                         />
                       ))}
                     </div>
@@ -80,9 +81,11 @@ const ProductsSlide = () => {
                       {items.map((product) => (
                         <ProductItem
                           key={product.id}
-                          image={cpuGamer}
+                          image={product.imagen}
                           title={product.nombre}
                           characteristic={product.description}
+                          id={product.id}
+                          precio={product.precio}
                         />
                       ))}
                     </div>

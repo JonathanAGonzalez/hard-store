@@ -1,16 +1,16 @@
-const ListNavBar = ({children}) => {
+const ListNavBar = ({ children }) => {
   return (
     <ul className="menu-ul">
       <li>
         <ul className="menu-ul-sub">
           <li>
-            <a href="/">Hardware</a>
+            <a href="/category/hardware">Hardware</a>
           </li>
           <li>
-            <a href="/">SoftWare</a>
+            <a href="/category/software">Sofware</a>
           </li>
           <li>
-            <a href="/">Accesories </a>
+            <a href="/category/accesories">Accesorios</a>
           </li>
           {children}
         </ul>

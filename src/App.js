@@ -14,6 +14,7 @@ import ddr4 from "./assets/images/products/ddr4.png";
 //ESTILOS
 import "./components/scss/App.scss";
 import Error404 from "./components/Error404/Error404";
+import Hardware from "./components/categories/Hardware";
 
 function App() {
   const [widget, setWidget] = useState(false);
@@ -29,9 +30,10 @@ function App() {
           {/* NAVBAR */}
           <div className="container-navbar col-12">
             <NavBar
-              offers="Offers"
-              categories="Categories"
-              contact="Contact"
+              home="Home"
+              offers="Ofertas"
+              categories="Categorias"
+              contact="Contacto"
               widget={widget}
               setWidget={setWidget}
             />
@@ -48,26 +50,32 @@ function App() {
                 slide3="Cuotas Sin Interes!"
                 slidebtn3="VER TARJETAS"
               />
-              <ItemDetailContainer
-                title="Gigabyte RTX 2060"
-                description="GeForce RTX™ 2060
+              <div className="row">
+                <ItemDetailContainer
+                  title="Gigabyte RTX 2060"
+                  description="GeForce RTX™ 2060
                             Integrated with 6GB GDDR6"
-                price="$1023"
-                image={rtx2060}
-              />
-              <ItemDetailContainer
-                title="Memory DDR4"
-                description="ADATA PC4-24000 XPG GAMER D50 RGB GOLD"
-                price="$3023"
-                image={ddr4}
-              />
+                  price="$1023"
+                  image={rtx2060}
+                />
+                <ItemDetailContainer
+                  title="Memory DDR4"
+                  description="ADATA PC4-24000 XPG GAMER D50 RGB GOLD"
+                  price="$3023"
+                  image={ddr4}
+                />
+              </div>
             </div>
+
             {/* SLIDE PRODUCTS */}
             <ProductsSlide />
           </Route>
           <Route path="/detail/:id?">
             {/* CONTAINER DETAIL */}
             <ItemDetailContainerProduct />
+          </Route>
+          <Route path="/category/:section?">
+            <Hardware />
           </Route>
           <Route path="*">
             <Error404 />
