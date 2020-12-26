@@ -2,7 +2,7 @@
 import { FaSearch } from "react-icons/fa";
 
 //SCSS
-import "./scss/Search.scss";
+import "./Search.scss";
 
 //COMPONENT SEARCH
 const Search = () => {

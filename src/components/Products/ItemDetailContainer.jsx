@@ -1,5 +1,5 @@
 import "./ItemDetailContainer.scss";
-const ItemDetailContainer = ({ title, description, price, image }) => {
+const ItemDetailContainer = ({ title, description, image }) => {
   return (
     <div className="card bg-dark text-white m-3 col-10 col-md-5 col-lg-2">
       <img className="card-img my-4" src={image} alt="Imagen Card" />

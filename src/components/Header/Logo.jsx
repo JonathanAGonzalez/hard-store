@@ -1,5 +1,5 @@
 //STYLES SCSS
-import "./scss/Logo.scss";
+import "./Logo.scss";
 
 //REACT ICONS
 import { FiCpu } from "react-icons/fi";

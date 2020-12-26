@@ -1,6 +1,8 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
 import data from "../../data/productItem";
+import Loading from '../Spinner/Spinner';
+
 const ItemDetailContainerProduct = () => {
   const [items, setItems] = React.useState([]);
   const getProducts = new Promise((resolve, reject) => {
@@ -19,10 +21,10 @@ const ItemDetailContainerProduct = () => {
   };
   React.useEffect(() => {
     getProductsFromDb();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(items);
-  return (
+  return items.length !== 0 ? (
     <div className="row justify-content-center item-detail-container">
       {items.map((product) => (
         <ItemDetail
@@ -34,7 +36,7 @@ const ItemDetailContainerProduct = () => {
         />
       ))}
     </div>
-  );
+  ) : <div className="row justify-content-center mt-5"><Loading/>  </div>;
 };
 
 export default ItemDetailContainerProduct;

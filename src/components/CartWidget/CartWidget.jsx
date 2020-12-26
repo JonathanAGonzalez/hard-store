@@ -1,8 +1,8 @@
 import CardWidget from "./CardWidget";
-import "./scss/CartWidget.scss";
 import { ImArrowRight } from "react-icons/im";
-import image from "../assets/images/ddr4.jpg";
-import products from "../data/products";
+import image from "../../assets/images/ddr4.jpg";
+import products from "../../data/products";
+import "./CartWidget.scss";
 
 const CartWidget = ({ widget, setWidget }) => {
   return (

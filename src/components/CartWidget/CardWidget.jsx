@@ -1,6 +1,6 @@
 import { FaWindowClose } from "react-icons/fa";
-import img from "../assets/images/products/ddr4.png";
-const CardWidget = ({ name, description, price, image }) => {
+import img from "../../assets/images/products/ddr4.png";
+const CardWidget = () => {
   return (
     <>
       <div className="container-product">

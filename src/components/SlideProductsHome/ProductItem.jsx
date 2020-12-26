@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
 import Swal from "sweetalert2";
-import "./Product.scss";
+import { Link} from 'react-router-dom';
+import "./Scss/Product.scss";
 const ProductItem = ({ image, title, characteristic }) => {
   const onAdd = (qty) => {
     Swal.fire({
@@ -29,6 +30,8 @@ const ProductItem = ({ image, title, characteristic }) => {
             </ol>
           )}
           <ItemCount stock={5} initial={1} onAdd={onAdd} />
+
+          <Link to="/detail" ><button className="card-button-more"> Ver mas</button> </Link>
         </div>
       </div>
     </div>

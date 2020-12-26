@@ -1,4 +1,4 @@
-@import 'Var.scss';
+@import "../scss/Var.scss";
 
 .SearchIco {
   position: absolute;
@@ -6,19 +6,19 @@
   top: 13px;
   color: $primary-color;
 }
-.container-search{
+.container-search {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.container-input{
+.container-input {
   position: relative;
   width: 100%;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
-.input-search{
+.input-search {
   border: none;
   padding: 10px;
   border-radius: 5px;

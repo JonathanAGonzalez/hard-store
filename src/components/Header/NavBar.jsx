@@ -1,9 +1,9 @@
 import ListNavBar from "./ListNavBar";
 import { useState } from "react";
 
-import CarWidget from "../components/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 //SCSS
-import "./scss/NavBar.scss";
+import "./NavBar.scss";
 
 //COMPONENT NAVBAR
 const NavBar = ({ categories, offers, contact, widget, setWidget }) => {
@@ -11,7 +11,7 @@ const NavBar = ({ categories, offers, contact, widget, setWidget }) => {
 
   return (
     <nav className="nav row">
-      {widget && <CarWidget widget={widget} setWidget={setWidget} />}
+      {widget && <CartWidget widget={widget} setWidget={setWidget} />}
       <div className="container-nav col-12 col-md-4">
         <div
           className="menu categories"

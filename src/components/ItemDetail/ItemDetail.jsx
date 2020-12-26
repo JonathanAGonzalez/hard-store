@@ -2,7 +2,6 @@ import React from "react";
 import ImgMac from "../../assets/images/products/appleretina.png";
 
 const ItemDetail = ({ nombre, descripcion, precio }) => {
-  console.log(descripcion);
   return (
     <>
       <div className="col-3 item-detail">

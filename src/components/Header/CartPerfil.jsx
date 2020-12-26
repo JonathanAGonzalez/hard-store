@@ -2,7 +2,7 @@
 import { FaOpencart } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 //SCSS
-import "./scss/Cart.scss";
+import "./Cart.scss";
 
 //COMPONENT
 const CartPerfil = ({ widget, setWidget }) => {

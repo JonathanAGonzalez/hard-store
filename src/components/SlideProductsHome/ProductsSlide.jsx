@@ -3,7 +3,7 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import ProductItem from "./ProductItem";
 import cpuGamer from "../../assets/images/products/cpugamer.jpg";
 import data from "../../data/products.js";
-import Spinner from "../Spinner";
+import Spinner from "../Spinner/Spinner";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
@@ -11,7 +11,7 @@ const ProductsSlide = () => {
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
-    }, 3000);
+    }, 2000);
   });
 
   const getProfuctsFromDb = async () => {
