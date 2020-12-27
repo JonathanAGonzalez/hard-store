@@ -3,6 +3,9 @@
   color: #f2f2f2;
 }
 .card {
+  &-title {
+    font-size: 1rem;
+  }
   &-price {
     font-size: 2rem;
     color: $color-card-white;
@@ -11,6 +14,9 @@
   &-li {
     list-style: none;
     font-size: 0.9rem;
+  }
+  &-list {
+    padding: 0;
   }
   &-body {
     background: $color-card-gray;
@@ -47,4 +53,9 @@
       margin: 10px 0px 0px;
     }
   }
+}
+
+.products-stretch {
+  display: flex;
+  align-items: stretch !important;
 }

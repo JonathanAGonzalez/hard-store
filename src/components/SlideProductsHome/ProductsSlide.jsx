@@ -3,6 +3,7 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import ProductItem from "./ProductItem";
 import data from "../../data/productsNew.js";
 import Spinner from "../Spinner/Spinner";
+import "./Scss/Product.scss";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
@@ -30,7 +31,7 @@ const ProductsSlide = () => {
   return (
     <section className="pt-5 pb-5">
       <div className="container">
-        <div className="row">
+        <div className="row ">
           <div className="col-6">
             <h3 className="mb-3">Productos Destacados</h3>
           </div>
@@ -63,7 +64,7 @@ const ProductsSlide = () => {
               ) : (
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <div className="row">
+                    <div className="row ">
                       {items.map((product) => (
                         <ProductItem
                           key={product.id}
@@ -77,7 +78,7 @@ const ProductsSlide = () => {
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <div className="row">
+                    <div className="row ">
                       {items.map((product) => (
                         <ProductItem
                           key={product.id}

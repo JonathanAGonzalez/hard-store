@@ -1,18 +1,16 @@
-const ListNavBar = ({ children }) => {
+import { Link } from "react-router-dom";
+import categories from "../../data/categories";
+
+const ListNavBar = () => {
   return (
     <ul className="menu-ul">
       <li>
         <ul className="menu-ul-sub">
-          <li>
-            <a href="/category/hardware">Hardware</a>
-          </li>
-          <li>
-            <a href="/category/software">Sofware</a>
-          </li>
-          <li>
-            <a href="/category/accesories">Accesorios</a>
-          </li>
-          {children}
+          {categories.map((category) => (
+            <li key={category.nombre}>
+              <Link to={category.ruta}>{category.nombre}</Link>
+            </li>
+          ))}
         </ul>
       </li>
     </ul>

@@ -14,7 +14,7 @@ import ddr4 from "./assets/images/products/ddr4.png";
 //ESTILOS
 import "./components/scss/App.scss";
 import Error404 from "./components/Error404/Error404";
-import Hardware from "./components/categories/Hardware";
+import Category from "./components/Categories/Category";
 
 function App() {
   const [widget, setWidget] = useState(false);
@@ -50,7 +50,10 @@ function App() {
                 slide3="Cuotas Sin Interes!"
                 slidebtn3="VER TARJETAS"
               />
-              <div className="row">
+              <div
+                className="row justify-content-center"
+                style={{ margin: "0" }}
+              >
                 <ItemDetailContainer
                   title="Gigabyte RTX 2060"
                   description="GeForce RTX™ 2060
@@ -68,6 +71,7 @@ function App() {
             </div>
 
             {/* SLIDE PRODUCTS */}
+
             <ProductsSlide />
           </Route>
           <Route path="/detail/:id?">
@@ -75,7 +79,7 @@ function App() {
             <ItemDetailContainerProduct />
           </Route>
           <Route path="/category/:section?">
-            <Hardware />
+            <Category />
           </Route>
           <Route path="*">
             <Error404 />

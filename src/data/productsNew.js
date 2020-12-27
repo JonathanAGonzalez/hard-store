@@ -2,7 +2,7 @@ const Products = [
   {
     id: 1,
     category: "cpu-gamer",
-    nombre: "Computadora Gamer",
+    nombre: "Cpu Gamer Armada Ryzen 5",
     imagen: "/assets/images/products/cpugamer.png",
     description: [
       "Memoria Ddr4 16 gb",
@@ -28,15 +28,15 @@ const Products = [
   },
   {
     id: 2,
-    category: "accesorios",
+    category: "accesories",
     nombre: "Razer DEATHADDER V2",
     imagen: "/assets/images/products/deathadder.png",
     description: [
       "Sensor óptico Focus+",
       "Base del ratón grande",
       "Rueda de desplazamiento táctil",
-      "Iluminación Razer Chroma™ RGB",
-      "Compatible con Xbox One",
+      "Iluminación Razer RGB Chroma",
+      "Gamer Design",
     ],
     especificaciones: [
       "Sensor óptico Focus+ con 20 000 PPP reales",
@@ -69,6 +69,29 @@ const Products = [
       "Disco Solido SSD 250GB",
       "Procesador Ryzen 5 1600",
       "Fuente W600",
+    ],
+    especificaciones: [
+      "PANTALLA",
+      "Retina de 13.3 pulgadas (diagonal) retroiluminada por LED con tecnología IPS",
+      "resolución nativa de 2560 x 1600 a 227 pixeles por pulgada compatible con millones de colores",
+      "Compatible con resoluciones a escala:1680 x 1050 1440 x 900 1024 x 640",
+      "Brillo de 300 nits",
+      "Gama de colores estándar (sRGB)",
+      "Relación de contraste de 900:1",
+    ],
+    precio: 4320,
+  },
+  {
+    id: 4,
+    category: "hardware",
+    nombre: "Kingston DDR4 3200 MHz",
+    imagen: "/assets/images/products/ddr4.png",
+    description: [
+      "Memoria Ddr4 16 gb",
+      "Velocidad de reloj: 3200Mhz ",
+      "Latencia CAS: 16",
+      "NonECC",
+      "Gamer Design",
     ],
     especificaciones: [
       "PANTALLA",

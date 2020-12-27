@@ -13,8 +13,8 @@ const ProductItem = ({ image, title, characteristic, id, precio }) => {
   };
 
   return (
-    <div className="col-md-4 mb-3">
-      <div className="card">
+    <div className="products-stretch col-lg-3 mb-3">
+      <div className="card ">
         <img className="img-fluid" alt="card foto" src={image} />
         <div className="card-body">
           <h4 className="card-title">{title}</h4>
