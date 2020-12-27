@@ -1,5 +1,6 @@
 import ListNavBar from "./ListNavBar";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 //SCSS
 import "./NavBar.scss";
@@ -12,9 +13,9 @@ const NavBar = ({ home, categories, offers, contact, widget, setWidget }) => {
     <nav className="nav row">
       {widget && <CartWidget widget={widget} setWidget={setWidget} />}
       <div className="container-nav col-12 col-md-4">
-        <a className="menu-a" href="/">
+        <Link className="menu-a" to="/">
           {home}
-        </a>
+        </Link>
         <div
           className="menu categories"
           onClick={() => setNavCategories(!navCategories)}
@@ -23,12 +24,9 @@ const NavBar = ({ home, categories, offers, contact, widget, setWidget }) => {
           {navCategories && <ListNavBar />}
         </div>
 
-        <a className="menu-a" href="/">
-          {offers}
-        </a>
-        <a className="menu-a" href="/">
+        <Link className="menu-a" to="/contact">
           {contact}
-        </a>
+        </Link>
       </div>
     </nav>
   );
