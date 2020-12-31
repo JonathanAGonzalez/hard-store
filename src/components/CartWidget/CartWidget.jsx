@@ -1,7 +1,7 @@
 import CardWidget from "./CardWidget";
 import { ImArrowRight } from "react-icons/im";
 import image from "../../assets/images/ddr4.jpg";
-import products from "../../data/products";
+import productsNew from "../../data/productsNew";
 import "./CartWidget.scss";
 
 const CartWidget = ({ widget, setWidget }) => {
@@ -17,7 +17,7 @@ const CartWidget = ({ widget, setWidget }) => {
         </h4>
         <hr />
       </div>
-      {products.map(({ id, name, description, price }) => (
+      {productsNew.map(({ id, name, description, price }) => (
         <CardWidget
           key={id}
           name={name}

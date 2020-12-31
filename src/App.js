@@ -9,7 +9,7 @@ import ItemDetailContainer from "./components/Products/ItemDetailContainer";
 import ProductsSlide from "./components/SlideProductsHome/ProductsSlide";
 import ItemDetailContainerProduct from "./components/ItemDetail/ItemDetailContainerProduct";
 //IMAGENES
-import rtx2060 from "./assets/images/products/rtx2060.png";
+import rtx2060 from "./assets/images/products/rtx-2060.png";
 import ddr4 from "./assets/images/products/ddr4.png";
 //ESTILOS
 import "./components/scss/App.scss";

@@ -15,5 +15,9 @@ const categories = [
     nombre: "Notebook",
     ruta: "/category/notebook",
   },
+  {
+    nombre: "Gabinetes",
+    ruta: "/category/gabinetes",
+  },
 ];
 export default categories;
