@@ -15,6 +15,7 @@ import ddr4 from "./assets/images/products/ddr4.png";
 import "./components/scss/App.scss";
 import Error404 from "./components/Error404/Error404";
 import Category from "./components/Categories/Category";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   const [widget, setWidget] = useState(false);
@@ -80,6 +81,9 @@ function App() {
           </Route>
           <Route path="/category/:section?">
             <Category />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           <Route path="*">
             <Error404 />
