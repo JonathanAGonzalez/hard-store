@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import data from "../../data/productsNew";
 import Card from "../Card/Card";
 import Loading from "../Spinner/Spinner";
-const Hardware = () => {
+const Category = () => {
   const category = useParams().section;
 
   const [products, setProducts] = React.useState([]);
@@ -11,7 +11,7 @@ const Hardware = () => {
   const showProducts = products.filter(
     (product) => product.category === category
   );
-  console.log(showProducts);
+
   const getProducts = new Promise((resolve) => {
     setTimeout(() => {
       resolve(data);
@@ -52,4 +52,4 @@ const Hardware = () => {
   );
 };
 
-export default Hardware;
+export default Category;

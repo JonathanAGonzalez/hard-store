@@ -7,7 +7,7 @@ const Slide = ({ slide1, slide2, slide3, slidebtn3 }) => {
   return (
     <div
       id="carouselExampleIndicators"
-      className="carousel slide mt-3 col-12 col-md-12 col-lg-6"
+      className="carousel slide mt-3 col-12 col-md-12 col-lg-8 col-xl-6"
       data-ride="carousel"
     >
       <ol className="carousel-indicators">
