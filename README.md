@@ -21,9 +21,10 @@
 </p>
 
 - **Browsing my website **
-<p align="left">
+
 ![](https://media4.giphy.com/media/9s1E78Ny9eZvZcr3IP/giphy.gif)
-</p>
+
+
 
 
 
