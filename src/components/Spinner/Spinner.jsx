@@ -1,8 +1,8 @@
-import React from "react";
+import "./Spinner.scss";
 
 const Spinner = () => {
   return (
-    <div>
+    <div className="spinner-container">
       <div className="spinner-grow text-primary" role="status">
         <span className="sr-only">Loading...</span>
       </div>

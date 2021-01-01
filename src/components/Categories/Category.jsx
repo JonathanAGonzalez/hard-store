@@ -37,6 +37,7 @@ const Category = () => {
       {showProducts.map(
         ({ nombre, imagen, description, especificaciones, precio, id }) => (
           <Card
+            key={id}
             nombre={nombre}
             imagen={imagen}
             description={description}

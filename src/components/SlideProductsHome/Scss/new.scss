@@ -1,0 +1,51 @@
+@import "../../scss/Var.scss";
+
+.container-product {
+  width: 100%;
+  overflow-x: scroll;
+  margin: 0 auto;
+}
+.rec {
+  &-dot {
+    &_active {
+      background: $secondary-color-cian !important;
+      box-shadow: 0 0 1px 3px rgb(58, 164, 183) !important;
+    }
+  }
+  &-arrow {
+    &-right {
+      &:hover {
+        background: $primary-color !important;
+      }
+    }
+    &-left {
+      &:hover {
+        background: $primary-color !important;
+      }
+    }
+  }
+}
+
+.product {
+  &-home {
+    display: flex;
+    justify-content: center;
+    font-family: $primary-font;
+  }
+  &-slide {
+    &-h3 {
+      color: $color-font-gray;
+      margin-left: 70px;
+    }
+  }
+}
+.rec.rec-arrow {
+  border-radius: 15px;
+}
+
+@media (max-width: 768) {
+  .container-product {
+    width: 100%;
+    margin: 0;
+  }
+}

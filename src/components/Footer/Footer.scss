@@ -1,0 +1,11 @@
+@import "../scss/Var.scss";
+
+.container {
+  &-footer {
+    background: $secondary-color-background;
+    font-family: $primary-font;
+    color: $primary-color-font;
+    padding: 2%;
+    filter: drop-shadow(2px 0px 5px #222222);
+  }
+}

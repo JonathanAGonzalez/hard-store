@@ -1,13 +1,31 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, Redirect } from "react-router-dom";
+import { useState } from "react";
 import "./ItemDetail.scss";
 
-const ItemDetail = ({ nombre, descripcion, precio, id, imagen, info }) => {
+const ItemDetail = ({
+  nombre,
+  descripcion,
+  precio,
+  id,
+  imagen,
+  info,
+  category,
+}) => {
   const ids = useParams();
+
+  const [redirect, setRedirect] = useState(false);
+
   return (
     id === parseInt(ids.id) && (
       <>
         <div className="row justify-content-around align-items-center item-detail-container">
           <div className="col-12 col-md-6 col-lg-4 item-detail">
+            <small>
+              <Link to="/categories">/categoria</Link>
+              <Link to={`/category/${category}`}>/{category}</Link>/
+              <Link to={`/detail/${id}`}>{nombre}</Link>
+            </small>
+
             <img className="img-fluid" src={imagen} alt="IMAGEN PRODUCTO" />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
@@ -23,6 +41,12 @@ const ItemDetail = ({ nombre, descripcion, precio, id, imagen, info }) => {
                 ))}
             </ul>
             <button className="item-detail-btn">Comprar</button>
+            <button
+              className="item-detail-btn mx-4"
+              onClick={() => setRedirect(true)}
+            >
+              Agregar al carrito
+            </button>
           </div>
         </div>
         <hr className="my-5" />
@@ -35,6 +59,7 @@ const ItemDetail = ({ nombre, descripcion, precio, id, imagen, info }) => {
             </ul>
           </div>
         </div>
+        {redirect && <Redirect to="/cart" />}
       </>
     )
   );

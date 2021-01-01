@@ -16,6 +16,9 @@ import "./components/scss/App.scss";
 import Error404 from "./components/Error404/Error404";
 import Category from "./components/Categories/Category";
 import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import Categories from "./components/Categories/Categories";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [widget, setWidget] = useState(false);
@@ -72,7 +75,6 @@ function App() {
             </div>
 
             {/* SLIDE PRODUCTS */}
-
             <ProductsSlide />
           </Route>
           <Route path="/detail/:id?">
@@ -85,10 +87,17 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
+          <Route path="/categories">
+            <Categories />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
           <Route path="*">
             <Error404 />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

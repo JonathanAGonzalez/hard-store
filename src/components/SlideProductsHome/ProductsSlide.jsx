@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import ProductItem from "./ProductItem";
 import data from "../../data/productsNew.js";
 import Spinner from "../Spinner/Spinner";
 import "./Scss/Product.scss";
+import "./Scss/new.scss";
+import Carousel from "react-elastic-carousel";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 6 },
+  ];
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
@@ -28,76 +34,36 @@ const ProductsSlide = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <section className="pt-5 pb-5">
-      <div className="container">
-        <div className="row ">
-          <div className="col-6">
-            <h3 className="mb-3">Productos Destacados</h3>
-          </div>
-          <div className="col-6 text-right">
-            <a
-              className="btn btn-dark mb-3 mr-1"
-              href="#carouselExampleIndicators2"
-              role="button"
-              data-slide="prev"
-            >
-              <BsArrowLeft />
-            </a>
-            <a
-              className="btn btn-dark mb-3 "
-              href="#carouselExampleIndicators2"
-              role="button"
-              data-slide="next"
-            >
-              <BsArrowRight />
-            </a>
-          </div>
-          <div className="col-12">
-            <div
-              id="carouselExampleIndicators2"
-              className="carousel slide"
-              data-ride="carousel"
-            >
-              {!items.length ? (
-                <Spinner />
-              ) : (
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="row ">
-                      {items.map((product) => (
-                        <ProductItem
-                          key={product.id}
-                          image={product.imagen}
-                          title={product.nombre}
-                          characteristic={product.description}
-                          id={product.id}
-                          precio={product.precio}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <div className="row ">
-                      {items.map((product) => (
-                        <ProductItem
-                          key={product.id}
-                          image={product.imagen}
-                          title={product.nombre}
-                          characteristic={product.description}
-                          id={product.id}
-                          precio={product.precio}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+  return items.length !== 0 ? (
+    <div className="product-slide-container">
+      <h3 className="product-slide-h3">Productos Nuevos</h3>
+      <Carousel
+        initialActiveIndex={0}
+        easing="cubic-bezier(1,.15,.55,1.54)"
+        tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
+        transitionMs={700}
+        breakPoints={breakPoints}
+        enableAutoPlay
+        autoPlaySpeed={9000}
+        autoTabIndexVisibleItems={true}
+      >
+        {items.map((product) => (
+          <ProductItem
+            key={product.id}
+            image={product.imagen}
+            title={product.nombre}
+            characteristic={product.description}
+            id={product.id}
+            precio={product.precio}
+          />
+        ))}
+      </Carousel>
+      <div className="container-product">
+        <div className="product-home"></div>
       </div>
-    </section>
+    </div>
+  ) : (
+    <Spinner />
   );
 };
 
