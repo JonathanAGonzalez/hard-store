@@ -13,7 +13,7 @@ const ItemDetail = ({
 }) => {
   const ids = useParams();
 
-  const [redirect, setRedirect] = useState(false);
+  const [move, setMove] = useState(false);
 
   return (
     id === parseInt(ids.id) && (
@@ -40,13 +40,15 @@ const ItemDetail = ({
                   </li>
                 ))}
             </ul>
-            <button className="item-detail-btn">Comprar</button>
-            <button
-              className="item-detail-btn mx-4"
-              onClick={() => setRedirect(true)}
-            >
-              Agregar al carrito
-            </button>
+            <div className="row">
+              <button className="item-detail-btn col-5">Comprar</button>
+              <button
+                className="item-detail-btn col-5 mx-4"
+                onClick={() => setMove(true)}
+              >
+                Agregar al carrito
+              </button>
+            </div>
           </div>
         </div>
         <hr className="my-5" />
@@ -59,7 +61,7 @@ const ItemDetail = ({
             </ul>
           </div>
         </div>
-        {redirect && <Redirect to="/cart" />}
+        {move && <Redirect to="/cart" />}
       </>
     )
   );

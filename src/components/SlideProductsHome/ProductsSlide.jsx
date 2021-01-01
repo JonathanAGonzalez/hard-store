@@ -8,12 +8,7 @@ import Carousel from "react-elastic-carousel";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 6 },
-  ];
+
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
@@ -33,6 +28,13 @@ const ProductsSlide = () => {
     getProfuctsFromDb();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 6 },
+  ];
 
   return items.length !== 0 ? (
     <div className="product-slide-container">

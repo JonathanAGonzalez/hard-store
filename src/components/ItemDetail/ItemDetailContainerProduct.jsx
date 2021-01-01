@@ -24,6 +24,7 @@ const ItemDetailContainerProduct = () => {
     getProductsFromDb();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return items.length !== 0 ? (
     <>
       {items.map((product) => (
