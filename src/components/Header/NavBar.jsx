@@ -1,32 +1,52 @@
 import ListNavBar from "./ListNavBar";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 //SCSS
 import "./NavBar.scss";
 
 //COMPONENT NAVBAR
-const NavBar = ({ home, categories, offers, contact, widget, setWidget }) => {
+const NavBar = ({ home, categories, contact, widget, setWidget }) => {
   const [navCategories, setNavCategories] = useState(false);
 
   return (
     <nav className="nav row">
-      {widget && <CartWidget widget={widget} setWidget={setWidget} />}
+      {widget ? (
+        <CartWidget widget={widget} setWidget={setWidget} active="active" />
+      ) : (
+        <CartWidget widget={widget} setWidget={setWidget} hide="hide" />
+      )}
       <div className="container-nav col-12 col-md-4">
-        <Link className="menu-a" to="/">
+        <NavLink
+          exact
+          activeStyle={{ color: "#d84727" }}
+          className="menu-a"
+          to="/"
+        >
           {home}
-        </Link>
+        </NavLink>
         <div
           className="menu categories"
-          onClick={() => setNavCategories(!navCategories)}
+          onMouseEnter={() => setNavCategories(!navCategories)}
         >
-          {categories}
-          {navCategories && <ListNavBar />}
+          <NavLink
+            className="menu-a"
+            activeStyle={{ color: "#d84727" }}
+            to="/categories"
+          >
+            {categories}
+          </NavLink>
+          <ListNavBar />
+          {navCategories && <ListNavBar active={navCategories} />}
         </div>
 
-        <Link className="menu-a" to="/contact">
+        <NavLink
+          activeStyle={{ color: "#d84727" }}
+          className="menu-a"
+          to="/contact"
+        >
           {contact}
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

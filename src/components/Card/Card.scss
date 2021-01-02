@@ -9,6 +9,9 @@
     color: $color-font-gray;
     transition: ease-in 0.3s;
     filter: drop-shadow(0px 0px 1px $secondary-color-background);
+    -webkit-animation: scale-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: scale-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     &:hover {
       filter: drop-shadow(0px 0px 5px $secondary-color-background);
     }
@@ -29,5 +32,44 @@
       @include button-default;
       margin-bottom: 20px;
     }
+  }
+}
+
+@media (max-width: 992px) {
+  .hide {
+    display: none;
+  }
+}
+
+@-webkit-keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
   }
 }

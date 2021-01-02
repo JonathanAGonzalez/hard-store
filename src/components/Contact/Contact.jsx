@@ -1,36 +1,36 @@
-import React from "react";
+import "./Contact.scss";
 const Contact = () => {
   return (
     <div className="row">
       <div className="container">
-        <div className="row justify-content-stretch">
-          <div className="col-5">
+        <div className="row justify-content-stretch form-container">
+          <div className="col-5 ">
             <img
-              className="img-fluid"
-              src="/assets/images/form.jpg"
+              className="form-image"
+              src="/assets/images/form.jpeg"
               alt="Foto Formulario Left"
             />
           </div>
-          <form className="col-5" action="/contacto" method="post">
-            <h1>Formulario de contacto</h1>
-            <div className="form-label-container">
-              <label>Nombre:</label>
-              <input type="text" placeholder="Ingresà tu nombre" />
+          <form className="col-5 form" action="/contacto" method="post">
+            <h1 className="form-h1">Formulario de contacto</h1>
+            <div className="row container-input">
+              <input type="text" className="col-12 input-form" required />
+              <label className="label-form">Nombre</label>
             </div>
-            <div className="form-label-container">
-              <label>Email:</label>
-              <input type="email" placeholder="Ingresà tu correo" />
+            <div className="row mt-5 container-input">
+              <input type="text" className="col-12 input-form" required />
+              <label className="label-form">Email</label>
             </div>
-            <div className="form-label-container">
+            <div className="row form-label-container">
               <textarea
+                className="form-text-area mt-3 col-11"
                 name=""
-                id=""
                 cols="30"
-                rows="10"
+                rows="2"
                 placeholder="Mensaje"
               ></textarea>
             </div>
-            <button>Enviar</button>
+            <button className="form-btn mt-3">Enviar</button>
           </form>
         </div>
       </div>

@@ -35,8 +35,7 @@ function App() {
           <div className="container-navbar col-12">
             <NavBar
               home="Home"
-              offers="Ofertas"
-              categories="Categorias"
+              categories="Categorias ^ "
               contact="Contacto"
               widget={widget}
               setWidget={setWidget}

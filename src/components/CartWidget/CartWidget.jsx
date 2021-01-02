@@ -4,9 +4,13 @@ import image from "../../assets/images/ddr4.jpg";
 import productsNew from "../../data/productsNew";
 import "./CartWidget.scss";
 
-const CartWidget = ({ widget, setWidget }) => {
+const CartWidget = ({ widget, setWidget, active }) => {
   return (
-    <div className="container-widget">
+    <div
+      className={
+        widget ? `container-widget ${active}` : `container-widget hide`
+      }
+    >
       <div className="cointainer-widget-header">
         <h4 className="container-widget-header-h4">
           CardWidget

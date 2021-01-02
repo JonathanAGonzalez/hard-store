@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import categories from "../../data/categories";
 
 const ListNavBar = () => {
@@ -8,7 +8,9 @@ const ListNavBar = () => {
         <ul className="menu-ul-sub">
           {categories.map((category) => (
             <li key={category.nombre}>
-              <Link to={category.ruta}>{category.nombre}</Link>
+              <NavLink activeStyle={{ color: "#d84727" }} to={category.ruta}>
+                {category.nombre}
+              </NavLink>
             </li>
           ))}
         </ul>
