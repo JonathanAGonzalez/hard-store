@@ -3,7 +3,7 @@ import "./Card.scss";
 
 const Card = ({ nombre, imagen, precio, id }) => {
   return (
-    <div className="Card-default col-10 col-lg-2">
+    <div className="Card-default col-10 col-md-2">
       <h1 className="Card-default-h1">{nombre}</h1>
       <hr />
       <div className="Card-default-imagen">

@@ -1,17 +1,38 @@
 import "./Contact.scss";
+import Particles from "react-particles-js";
 const Contact = () => {
   return (
-    <div className="row">
-      <div className="container">
-        <div className="row justify-content-stretch form-container">
-          <div className="col-5 ">
-            <img
-              className="form-image"
-              src="/assets/images/form.jpeg"
-              alt="Foto Formulario Left"
-            />
+    <div className="row my-5">
+      <div className="container form-container-height">
+        <div className="row  form-container">
+          <Particles
+            className="particulas"
+            params={{
+              particles: {
+                number: {
+                  value: 20,
+                },
+                size: {
+                  value: 5,
+                },
+              },
+            }}
+          ></Particles>
+          <div className="col-12 col-md-5 form-image d-flex justify-content-center align-items-center">
+            <h3 className="form-title-logo">
+              Hard<span className="form-title-logo-span">Store</span>
+            </h3>
+            <h3 className="form-title-thx">
+              Gracias
+              <span className="form-title-thx-span"> por tu consulta</span>
+            </h3>
           </div>
-          <form className="col-5 form" action="/contacto" method="post">
+
+          <form
+            className="col-12 col-md-5 form"
+            action="/contacto"
+            method="post"
+          >
             <h1 className="form-h1">Formulario de contacto</h1>
             <div className="row container-input">
               <input type="text" className="col-12 input-form" required />
@@ -24,13 +45,17 @@ const Contact = () => {
             <div className="row form-label-container">
               <textarea
                 className="form-text-area mt-3 col-11"
-                name=""
-                cols="30"
-                rows="2"
+                cols="20"
+                rows="5"
                 placeholder="Mensaje"
               ></textarea>
             </div>
-            <button className="form-btn mt-3">Enviar</button>
+            <div className="row justify-content-center">
+              <button className="form-btn m-3 col-10 col-md-4" type="reset">
+                Reset
+              </button>
+              <button className="form-btn m-3 col-10 col-md-4">Enviar</button>
+            </div>
           </form>
         </div>
       </div>

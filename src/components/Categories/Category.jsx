@@ -33,7 +33,7 @@ const Category = () => {
   }, [category]);
 
   return products.length !== 0 ? (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center category">
       {showProducts.map(
         ({ nombre, imagen, description, especificaciones, precio, id }) => (
           <Card
