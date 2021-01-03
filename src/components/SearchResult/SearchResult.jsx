@@ -3,7 +3,6 @@ import data from "../../data/productsNew";
 const SearchResult = ({ nombre }) => {
   const [result, setResult] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  console.log(nombre);
 
   const inputValues = (nombre) => {
     if (!nombre.trim()) {

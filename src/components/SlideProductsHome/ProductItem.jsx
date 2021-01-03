@@ -5,13 +5,12 @@ import "./Scss/Product.scss";
 const ProductItem = ({ image, title, characteristic, id, precio }) => {
   const onAdd = (qty) => {
     Swal.fire({
-      title: "Exito!",
-      text: `Agregaste al carrito ${qty} productos`,
+      title: `${title}`,
+      text: `Agregaste al carrito la cantidad de: ${qty}`,
       icon: "success",
       confirmButtonText: "Ok",
     });
   };
-
   return (
     <div className="products-stretch">
       <div className="card m-auto p-0 col-11 col-md-9 col-xl-11">
@@ -28,7 +27,7 @@ const ProductItem = ({ image, title, characteristic, id, precio }) => {
               ))}
             </ol>
           }
-          <ItemCount stock={5} initial={1} onAdd={onAdd} />
+          <ItemCount stock={5} initial={1} onAdd={onAdd} id={id} />
 
           <Link to={`/detail/${id}`}>
             <button className="card-button-more"> Ver mas</button>{" "}

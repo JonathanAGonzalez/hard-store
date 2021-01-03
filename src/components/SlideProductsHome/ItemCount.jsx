@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-const ItemCount = ({ stock, initial, onAdd }) => {
+
+const ItemCount = ({ stock, initial, onAdd, id }) => {
   const [quantity, setQuantity] = useState(1);
 
   const addProduct = () => {
