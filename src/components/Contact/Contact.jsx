@@ -18,7 +18,7 @@ const Contact = () => {
               },
             }}
           ></Particles>
-          <div className="col-12 col-md-5 form-image d-flex justify-content-center align-items-center">
+          <div className="col-12 col-md-6 form-image d-flex justify-content-center align-items-center">
             <h3 className="form-title-logo">
               Hard<span className="form-title-logo-span">Store</span>
             </h3>
@@ -29,7 +29,7 @@ const Contact = () => {
           </div>
 
           <form
-            className="col-12 col-md-5 form"
+            className="col-12 col-md-6 form"
             action="/contacto"
             method="post"
           >

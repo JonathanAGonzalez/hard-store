@@ -1,6 +1,11 @@
 import { useParams, Link, Redirect } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { RiArrowDropRightLine } from "react-icons/ri";
 import "./ItemDetail.scss";
+import "../ItemCount/ItemCount.scss";
+import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
+//CONTEXT
 
 const ItemDetail = ({
   nombre,
@@ -10,10 +15,22 @@ const ItemDetail = ({
   imagen,
   info,
   category,
+  product,
 }) => {
   const ids = useParams();
-
+  const CartItems = useContext(CartContext);
+  const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
+
+  const addCart = () => {
+    if (product) {
+      setCartProduct({
+        product: [...cartProduct.product, product],
+      });
+
+      setMove(true);
+    }
+  };
 
   return (
     id === parseInt(ids.id) && (
@@ -21,9 +38,12 @@ const ItemDetail = ({
         <div className="row justify-content-around align-items-center item-detail-container">
           <div className="col-12 col-md-6 col-lg-4 item-detail">
             <small>
-              <Link to="/categories">/categoria</Link>
-              <Link to={`/category/${category}`}>/{category}</Link>/
-              <Link to={`/detail/${id}`}>{nombre}</Link>
+              <Link to="/categories">Categoria </Link>
+              <Link to={`/category/${category}`}>
+                <RiArrowDropRightLine /> {category}
+                <RiArrowDropRightLine />
+              </Link>
+              <Link to={`/detail/${id}`}> {nombre} </Link>
             </small>
 
             <img className="img-fluid" src={imagen} alt="IMAGEN PRODUCTO" />
@@ -40,11 +60,12 @@ const ItemDetail = ({
                   </li>
                 ))}
             </ul>
-            <div className="row">
+            <div className="row justify-content-around">
+              <ItemCount />
               <button className="item-detail-btn col-5">Comprar</button>
               <button
-                className="item-detail-btn col-5 mx-4"
-                onClick={() => setMove(true)}
+                className="item-detail-btn col-5"
+                onClick={() => addCart()}
               >
                 Agregar al carrito
               </button>

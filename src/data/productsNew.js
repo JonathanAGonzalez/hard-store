@@ -2,7 +2,7 @@ const Products = [
   {
     id: 1,
     category: "cpu-gamer",
-    nombre: "Cpu Gamer Armada Ryzen 5",
+    nombre: "Cpu Gamer Armada Ryzen",
     imagen: "/assets/images/products/cpugamer.png",
     description: [
       "Memoria Ddr4 16 gb",
@@ -34,9 +34,8 @@ const Products = [
     description: [
       "Sensor óptico Focus+",
       "Base del ratón grande",
-      "Rueda de desplazamiento táctil",
+      "Rueda de desplazamiento",
       "Iluminación Razer RGB Chroma",
-      "Gamer Design",
     ],
     especificaciones: [
       "Sensor óptico Focus+ con 20 000 PPP reales",
@@ -135,7 +134,7 @@ const Products = [
     description: [
       "Alto: 445mm Largo: x380mm",
       "Compatible con Micro ATX.",
-      "Panel frontal con un puerto 3.0.",
+      "Panel frontal con puerto 3.0",
       "Iluminación RGB",
     ],
     especificaciones: [

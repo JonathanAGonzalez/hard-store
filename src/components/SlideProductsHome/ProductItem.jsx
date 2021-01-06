@@ -1,4 +1,3 @@
-import ItemCount from "./ItemCount";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import "./Scss/Product.scss";
@@ -27,8 +26,6 @@ const ProductItem = ({ image, title, characteristic, id, precio }) => {
               ))}
             </ol>
           }
-          <ItemCount stock={5} initial={1} onAdd={onAdd} id={id} />
-
           <Link to={`/detail/${id}`}>
             <button className="card-button-more"> Ver mas</button>{" "}
           </Link>

@@ -33,7 +33,7 @@ const ProductsSlide = () => {
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },
     { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 6 },
+    { width: 1200, itemsToShow: 5 },
   ];
 
   return items.length !== 0 ? (
@@ -45,8 +45,6 @@ const ProductsSlide = () => {
         tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
         transitionMs={700}
         breakPoints={breakPoints}
-        enableAutoPlay
-        autoPlaySpeed={9000}
         autoTabIndexVisibleItems={true}
       >
         {items.map((product) => (
