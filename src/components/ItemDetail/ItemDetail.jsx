@@ -21,10 +21,10 @@ const ItemDetail = ({
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
-
   const addCart = () => {
     if (product) {
       setCartProduct({
+        ...cartProduct,
         product: [...cartProduct.product, product],
       });
 
@@ -61,7 +61,7 @@ const ItemDetail = ({
                 ))}
             </ul>
             <div className="row justify-content-around">
-              <ItemCount />
+              <ItemCount stock={3} initial={1} />
               <button className="item-detail-btn col-5">Comprar</button>
               <button
                 className="item-detail-btn col-5"

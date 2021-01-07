@@ -25,6 +25,8 @@ const Products = [
       "Frente a la crisis sanitaria que estamos atravesando varios sectores de la cadena de suministros están con problemas para cumplir con sus compromisos de entrega, por lo que existe la posibilidad de que el producto atraviese modificaciones. Ante cualquier consulta o cambio todos los canales de contacto estan disponibles!",
     ],
     precio: 4320,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 2,
@@ -56,6 +58,8 @@ const Products = [
       "Compatible con Xbox One para entrada básica",
     ],
     precio: 4320,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 3,
@@ -79,6 +83,8 @@ const Products = [
       "Relación de contraste de 900:1",
     ],
     precio: 4320,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 4,
@@ -102,6 +108,8 @@ const Products = [
       "Relación de contraste de 900:1",
     ],
     precio: 4320,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 5,
@@ -124,7 +132,9 @@ const Products = [
       "Posibilidades de Overclock",
       "www.amd.com/es/cpu/amd-ryzen-5-1600",
     ],
-    precio: 15.302,
+    precio: 15302,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 6,
@@ -151,6 +161,8 @@ const Products = [
       "Peso: 4.5 kg",
     ],
     precio: 6302,
+    stock: 1,
+    qty: 1,
   },
   {
     id: 7,
@@ -177,6 +189,8 @@ const Products = [
       "Peso: 4.5 kg",
     ],
     precio: 6302,
+    stock: 1,
+    qty: 1,
   },
 ];
 

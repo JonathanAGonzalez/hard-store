@@ -23,7 +23,7 @@ import Cart from "./components/Cart/Cart";
 import { CartContext } from "./context/CartContext";
 function App() {
   const [widget, setWidget] = useState(false);
-  const [cartProduct, setCartProduct] = useState({ product: [] });
+  const [cartProduct, setCartProduct] = useState({ qty: 1, product: [] });
 
   return (
     <CartContext.Provider value={[cartProduct, setCartProduct]}>
