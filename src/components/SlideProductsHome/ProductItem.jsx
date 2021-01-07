@@ -1,15 +1,6 @@
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import "./Scss/Product.scss";
 const ProductItem = ({ image, title, characteristic, id, precio }) => {
-  const onAdd = (qty) => {
-    Swal.fire({
-      title: `${title}`,
-      text: `Agregaste al carrito la cantidad de: ${qty}`,
-      icon: "success",
-      confirmButtonText: "Ok",
-    });
-  };
   return (
     <div className="products-stretch">
       <div className="card m-auto p-0 col-11 col-md-9 col-xl-11">

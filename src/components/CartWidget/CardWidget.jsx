@@ -1,10 +1,9 @@
 import { FaWindowClose } from "react-icons/fa";
-import img from "../../assets/images/products/ddr4.png";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const CardWidget = () => {
-  const [cartProduct, setCartProduct] = useContext(CartContext);
+  const [cartProduct] = useContext(CartContext);
 
   return (
     <>
