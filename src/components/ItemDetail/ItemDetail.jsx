@@ -1,11 +1,12 @@
-import { useParams, Link, Redirect } from "react-router-dom";
-import { useState, useContext } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { useState, useContext, memo } from "react";
 import { RiArrowDropRightLine } from "react-icons/ri";
+import Swal from "sweetalert2";
+import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.scss";
 import "../ItemCount/ItemCount.scss";
-import ItemCount from "../ItemCount/ItemCount";
-import { CartContext } from "../../context/CartContext";
 //CONTEXT
+import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({
   nombre,
@@ -16,24 +17,30 @@ const ItemDetail = ({
   info,
   category,
   product,
+  ids,
 }) => {
-  const ids = useParams();
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
+
   const addCart = () => {
-    if (product) {
+    if (product && cartProduct.qty !== 0) {
       setCartProduct({
         ...cartProduct,
         product: [...cartProduct.product, product],
       });
 
       setMove(true);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Te olvidaste de poner una cantidad",
+      });
     }
   };
 
   return (
-    id === parseInt(ids.id) && (
+    id === ids && (
       <>
         <div className="row justify-content-around align-items-center item-detail-container">
           <div className="col-12 col-md-6 col-lg-4 item-detail">
@@ -88,4 +95,4 @@ const ItemDetail = ({
   );
 };
 
-export default ItemDetail;
+export default memo(ItemDetail);

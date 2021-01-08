@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 
 //CONTEXT
 import { CartContext } from "../../context/CartContext";
@@ -52,4 +52,4 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
   );
 };
 
-export default ItemCount;
+export default memo(ItemCount);

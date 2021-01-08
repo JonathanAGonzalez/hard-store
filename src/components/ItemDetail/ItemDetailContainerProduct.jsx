@@ -1,10 +1,12 @@
-import React from "react";
+import { useEffect, useState, memo } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import data from "../../data/productsNew";
 import Loading from "../Spinner/Spinner";
 
 const ItemDetailContainerProduct = () => {
-  const [items, setItems] = React.useState([]);
+  const [items, setItems] = useState([]);
+  const ids = useParams();
 
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -20,10 +22,10 @@ const ItemDetailContainerProduct = () => {
       console.log(error);
     }
   };
-  React.useEffect(() => {
+  useEffect(() => {
     getProductsFromDb();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ids]);
 
   return items.length !== 0 ? (
     <>
@@ -38,6 +40,7 @@ const ItemDetailContainerProduct = () => {
           info={product.especificaciones}
           category={product.category}
           product={product}
+          ids={parseInt(ids.id)}
         />
       ))}
     </>
@@ -48,4 +51,4 @@ const ItemDetailContainerProduct = () => {
   );
 };
 
-export default ItemDetailContainerProduct;
+export default memo(ItemDetailContainerProduct);

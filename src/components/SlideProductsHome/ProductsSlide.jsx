@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import ProductItem from "./ProductItem";
 import data from "../../data/productsNew.js";
 import Spinner from "../Spinner/Spinner";
@@ -8,7 +8,7 @@ import Carousel from "react-elastic-carousel";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-
+  console.log("desde productslide");
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
@@ -67,4 +67,4 @@ const ProductsSlide = () => {
   );
 };
 
-export default ProductsSlide;
+export default memo(ProductsSlide);

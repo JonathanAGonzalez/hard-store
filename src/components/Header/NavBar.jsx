@@ -1,5 +1,5 @@
 import ListNavBar from "./ListNavBar";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 //SCSS
@@ -52,4 +52,4 @@ const NavBar = ({ home, categories, contact, widget, setWidget }) => {
   );
 };
 
-export default NavBar;
+export default memo(NavBar);

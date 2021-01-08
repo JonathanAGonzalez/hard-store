@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { memo } from "react";
 import categories from "../../data/categories";
 
 const ListNavBar = () => {
@@ -19,4 +20,4 @@ const ListNavBar = () => {
   );
 };
 
-export default ListNavBar;
+export default memo(ListNavBar);

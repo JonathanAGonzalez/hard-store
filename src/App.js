@@ -8,22 +8,23 @@ import Slide from "./components/Carousel/Slide";
 import ItemDetailContainer from "./components/Products/ItemDetailContainer";
 import ProductsSlide from "./components/SlideProductsHome/ProductsSlide";
 import ItemDetailContainerProduct from "./components/ItemDetail/ItemDetailContainerProduct";
-//IMAGENES
-import rtx2060 from "./assets/images/products/rtx-2060.png";
-import ddr4 from "./assets/images/products/ddr4.png";
-//ESTILOS
-import "./components/scss/App.scss";
 import Error404 from "./components/Error404/Error404";
 import Category from "./components/Categories/Category";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories/Categories";
 import Cart from "./components/Cart/Cart";
+//IMAGENES
+import rtx2060 from "./assets/images/products/rtx-2060.png";
+import ddr4 from "./assets/images/products/ddr4.png";
+//ESTILOS
+import "./components/scss/App.scss";
+
 //CONTEXT
 import { CartContext } from "./context/CartContext";
 function App() {
   const [widget, setWidget] = useState(false);
-  const [cartProduct, setCartProduct] = useState({ qty: 1, product: [] });
+  const [cartProduct, setCartProduct] = useState({ qty: 0, product: [] });
 
   return (
     <CartContext.Provider value={[cartProduct, setCartProduct]}>

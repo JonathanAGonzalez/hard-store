@@ -2,6 +2,7 @@ import CardWidget from "./CardWidget";
 import { ImArrowRight } from "react-icons/im";
 import image from "../../assets/images/ddr4.jpg";
 import productsNew from "../../data/productsNew";
+import { memo } from "react";
 import "./CartWidget.scss";
 
 const CartWidget = ({ widget, setWidget, active }) => {
@@ -34,4 +35,4 @@ const CartWidget = ({ widget, setWidget, active }) => {
   );
 };
 
-export default CartWidget;
+export default memo(CartWidget);
