@@ -1,6 +1,8 @@
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
+import CartTable from "./CartTable";
 import "./Cart.scss";
+import CartTotal from "./CartTotal";
 const Cart = () => {
   const CartItem = useContext(CartContext);
   const [cartProduct] = CartItem;
@@ -8,35 +10,26 @@ const Cart = () => {
     <div>
       <div>
         <h1>CARRITO</h1>
-        <p>Producto</p>
         <div className="table-responsive">
           <table className="table">
-            <caption>Producto</caption>
+            <caption>
+              {cartProduct.product.length === 0 ? "No hay productos" : ""}
+            </caption>
             <thead>
               <tr>
-                <th scope="col">Cantidad</th>
+                <th scope="col">Eliminar</th>
                 <th scope="col"></th>
                 <th scope="col">Producto</th>
                 <th scope="col">Precio</th>
               </tr>
             </thead>
-            {cartProduct.product.map((product) => (
-              <tbody>
-                <tr>
-                  <th scope="row">2</th>
-                  <th>
-                    <img
-                      src={product.imagen}
-                      alt="Foto producto"
-                      className="img-fluid cart-img"
-                    />
-                  </th>
-                  <td>{product.nombre}</td>
-                  <td>${product.precio}</td>
-                </tr>
+            {cartProduct.product.map((product, index) => (
+              <tbody key={index}>
+                <CartTable key={index} product={product} />
               </tbody>
             ))}
           </table>
+          <CartTotal />
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ import Carousel from "react-elastic-carousel";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-  console.log("desde productslide");
   const getProducts = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
