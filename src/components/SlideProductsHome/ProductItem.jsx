@@ -22,11 +22,6 @@ const ProductItem = ({ image, title, characteristic, id, precio }) => {
               <button className="card-button-more "> Ver mas</button>
             </Link>
           </div>
-          <div className="row">
-            <Link className="col-12">
-              <button className="card-button-more ">Agregar al carrito</button>
-            </Link>
-          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,14 @@
+.container {
+  &-search {
+    &-result {
+      position: absolute;
+      z-index: 1000;
+      top: 60px;
+      right: 34.5%;
+      width: 448px;
+      background: #f2f2f2;
+      border-radius: 0px 0px 16px 16px;
+      filter: drop-shadow(0px 1px 1px #222222);
+    }
+  }
+}

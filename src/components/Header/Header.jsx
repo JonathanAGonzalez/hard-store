@@ -2,6 +2,7 @@
 import Logo from "./Logo";
 import Search from "./Search";
 import CartPerfil from "./CartPerfil";
+import { memo } from "react";
 
 const Header = ({ widget, setWidget }) => {
   return (
@@ -13,4 +14,4 @@ const Header = ({ widget, setWidget }) => {
   );
 };
 
-export default Header;
+export default memo(Header);

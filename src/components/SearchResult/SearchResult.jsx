@@ -1,37 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { SearchContext } from "../../context/SearchContext";
 import data from "../../data/productsNew";
-const SearchResult = ({ nombre }) => {
-  const [result, setResult] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+import ContainerResultSearch from "./ContainerResultSearch";
+import "./Search.scss";
+const SearchResult = () => {
+  const searchContext = useContext(SearchContext);
+  const [searchResult] = searchContext;
+  const [productoEncontrado, setProductoEncontrado] = useState([]);
 
-  const inputValues = (nombre) => {
-    if (!nombre.trim()) {
-      return setResult([]);
-    }
-    setInputValue(nombre);
-    resultValue();
+  const findProduct = () => {
+    const findP = searchResult.map((e) =>
+      data.find((prod) => prod.nombre === e)
+    );
+    setProductoEncontrado(findP);
   };
 
   useEffect(() => {
-    setInputValue(nombre);
-    resultValue();
-  }, [inputValue]);
-
-  const resultValue = () => {
-    const encontrado = data.map(
-      (e) => e.nombre.toLocaleLowerCase().indexOf(inputValue) !== -1 && e.nombre
-    );
-    setResult(encontrado);
-  };
+    findProduct();
+  }, [searchResult]);
 
   return (
-    <div>
-      1s
-      <ul>
-        {result.map((e) => (
-          <p>{e}</p>
-        ))}
-      </ul>
+    <div className="container-search-result">
+      <ContainerResultSearch productoEncontrado={productoEncontrado} />
     </div>
   );
 };

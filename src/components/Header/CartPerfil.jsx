@@ -10,7 +10,7 @@ import { CartContext } from "../../context/CartContext";
 
 const CartPerfil = ({ widget, setWidget }) => {
   const CartItem = useContext(CartContext);
-  const [cartProduct, setCartProduct] = CartItem;
+  const [cartProduct] = CartItem;
   return (
     <div className="cart-container order-2 col-4  order-md-3 col-md-4 ">
       <AiOutlineUser className="mx-4 cart-icon User" />
