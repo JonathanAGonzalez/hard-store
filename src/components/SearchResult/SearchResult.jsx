@@ -21,7 +21,10 @@ const SearchResult = () => {
 
   return (
     <div className="container-search-result">
-      <ContainerResultSearch productoEncontrado={productoEncontrado} />
+      <ContainerResultSearch
+        productoEncontrado={productoEncontrado}
+        setProductoEncontrado={setProductoEncontrado}
+      />
     </div>
   );
 };

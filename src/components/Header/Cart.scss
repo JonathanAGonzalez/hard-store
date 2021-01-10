@@ -9,6 +9,22 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: relative;
+  }
+  &-qty {
+    position: absolute;
+    top: -13px;
+    left: 6px;
+    background: #d84727;
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    color: #f2f2f2;
+    &-num {
+      position: absolute;
+      top: -2px;
+      right: 5px;
+    }
   }
 }
 

@@ -14,10 +14,19 @@ const CartPerfil = ({ widget, setWidget }) => {
   return (
     <div className="cart-container order-2 col-4  order-md-3 col-md-4 ">
       <AiOutlineUser className="mx-4 cart-icon User" />
-      <div className="cart-container"></div>
-      {cartProduct.qty !== 0 && (
-        <FaOpencart className="cart-icon" onClick={() => setWidget(!widget)} />
-      )}
+      <div className="cart-container">
+        {cartProduct.qty !== 0 && (
+          <>
+            <FaOpencart
+              className="cart-icon"
+              onClick={() => setWidget(!widget)}
+            />
+            <div className="cart-qty">
+              <span className="cart-qty-num">{cartProduct.qty}</span>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
