@@ -21,16 +21,8 @@ const CartWidget = ({ widget, setWidget, active }) => {
           />
         </h4>
         <hr />
+        <CardWidget />
       </div>
-      {productsNew.map(({ id, name, description, price }) => (
-        <CardWidget
-          key={id}
-          name={name}
-          description={description}
-          price={price}
-          image={image}
-        />
-      ))}
     </div>
   );
 };

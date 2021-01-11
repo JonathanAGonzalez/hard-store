@@ -22,7 +22,7 @@ const CartPerfil = ({ widget, setWidget }) => {
               onClick={() => setWidget(!widget)}
             />
             <div className="cart-qty">
-              <span className="cart-qty-num">{cartProduct.qty}</span>
+              <span className="cart-qty-num">{cartProduct.product.length}</span>
             </div>
           </>
         )}
