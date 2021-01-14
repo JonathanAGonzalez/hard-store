@@ -27,7 +27,10 @@ const ItemDetail = ({
     if (product && cartProduct.qty !== 0) {
       setCartProduct({
         ...cartProduct,
-        product: [...cartProduct.product, product],
+        product: [
+          ...cartProduct.product,
+          { cantidad: cartProduct.qty, product: product },
+        ],
       });
 
       setMove(true);

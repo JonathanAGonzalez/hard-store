@@ -18,14 +18,19 @@ const Cart = () => {
             <thead>
               <tr>
                 <th scope="col">Eliminar</th>
-                <th scope="col"></th>
+                <th scope="col">Cant. Productos</th>
+                <th scope="col">Descripción</th>
                 <th scope="col">Producto</th>
                 <th scope="col">Precio</th>
               </tr>
             </thead>
             {cartProduct.product.map((product, index) => (
               <tbody key={index}>
-                <CartTable key={index} product={product} />
+                <CartTable
+                  key={index}
+                  product={product.product}
+                  cantidadProduct={product.cantidad}
+                />
               </tbody>
             ))}
           </table>

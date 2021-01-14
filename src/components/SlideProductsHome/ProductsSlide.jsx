@@ -1,31 +1,23 @@
 import { useState, useEffect, memo } from "react";
 import ProductItem from "./ProductItem";
-import data from "../../data/productsNew.js";
 import Spinner from "../Spinner/Spinner";
 import "./Scss/Product.scss";
 import "./Scss/new.scss";
 import Carousel from "react-elastic-carousel";
+import { firebase } from "../../firebase/index";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 2000);
-  });
-
-  const getProfuctsFromDb = async () => {
-    try {
-      const result = await getProducts;
-      setItems(result);
-    } catch (err) {
-      alert("No podemos mostrar los productos en este momento");
-    }
-  };
+  const db = firebase.firestore();
 
   useEffect(() => {
-    getProfuctsFromDb();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getData = async () => {
+      const result = await db.collection("products").get();
+      const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+      setItems(data);
+    };
+    getData();
   }, []);
 
   const breakPoints = [

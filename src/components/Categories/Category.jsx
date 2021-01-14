@@ -1,36 +1,26 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import data from "../../data/productsNew";
 import Card from "../Card/Card";
 import Loading from "../Spinner/Spinner";
+import { firebase } from "../../firebase/index";
 const Category = () => {
   const category = useParams().section;
+  const [products, setProducts] = useState([]);
+  const db = firebase.firestore();
 
-  const [products, setProducts] = React.useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const result = await db.collection("products").get();
+      const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+      setProducts(data);
+    };
+    getData();
+  }, [category]);
 
   const showProducts = products.filter(
     (product) => product.category === category
   );
-
-  const getProducts = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 2000);
-  });
-
-  const getProductsFromDb = async () => {
-    try {
-      const result = await getProducts;
-      setProducts(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  React.useEffect(() => {
-    getProductsFromDb();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category]);
 
   return products.length !== 0 ? (
     <div className="row justify-content-center category">
