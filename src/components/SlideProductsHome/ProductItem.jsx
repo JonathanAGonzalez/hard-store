@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useMiles from "../../hooks/useMiles";
 import "./Scss/Product.scss";
 const ProductItem = ({ image, title, characteristic, id, precio }) => {
   return (
@@ -7,16 +8,8 @@ const ProductItem = ({ image, title, characteristic, id, precio }) => {
         <img className="img-fluid" alt="card foto" src={image} />
         <div className="card-body">
           <h4 className="card-title">{title}</h4>
-          <h4 className="card-price">${precio}</h4>
-          {
-            <ol className="text-left card-list">
-              {characteristic.map((element, index) => (
-                <li className="card-li" key={index}>
-                  {element}
-                </li>
-              ))}
-            </ol>
-          }
+          <h4 className="card-price">${useMiles(precio)}</h4>
+
           <div className="row ">
             <Link to={`/detail/${id}`} className="col-12">
               <button className="card-button-more "> Ver mas</button>

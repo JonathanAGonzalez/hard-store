@@ -1,5 +1,6 @@
 import CardWidget from "./CardWidget";
 import { ImArrowRight } from "react-icons/im";
+import { Link } from "react-router-dom";
 import { memo } from "react";
 import "./CartWidget.scss";
 
@@ -18,6 +19,11 @@ const CartWidget = ({ widget, setWidget, active }) => {
             onClick={() => setWidget(!widget)}
           />
         </h4>
+        <small>
+          <Link to="/cart" onClick={() => setWidget(false)}>
+            Ir al carrito ->
+          </Link>
+        </small>
         <hr />
         <CardWidget />
       </div>

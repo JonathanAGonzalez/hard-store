@@ -86,9 +86,10 @@ const ItemDetail = ({
         <div className="row justify-content-center">
           <div className="col-12 col-lg-6 mt-5">
             <h5>Especificaciones:</h5>
+            <p>{info}</p>
             <ul>
-              {info !== undefined &&
-                info.map((element, index) => <li key={index}>{element} </li>)}
+              {/*info !== undefined &&
+                info.map((element, index) => <li key={index}>{element} </li>)*/}
             </ul>
           </div>
         </div>

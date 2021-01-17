@@ -16,6 +16,7 @@ const ItemDetailContainerProduct = () => {
         .where("id", "==", parseInt(ids.id))
         .get();
       const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      console.log(data);
       setItems(data);
     };
     getData();

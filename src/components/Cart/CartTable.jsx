@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import useMiles from "../../hooks/useMiles";
 import "./Cart.scss";
 const CartTable = ({ product, cantidadProduct }) => {
   const cartContext = useContext(CartContext);
@@ -9,6 +10,7 @@ const CartTable = ({ product, cantidadProduct }) => {
     const filter = cartProduct.product.filter((prod) => prod.product.id !== id);
     setCartProduct({ ...cartProduct, product: filter });
   };
+
   return (
     <tr>
       <th scope="row">
@@ -28,7 +30,7 @@ const CartTable = ({ product, cantidadProduct }) => {
         />
       </th>
       <td>{product.nombre}</td>
-      <td>${product.precio}</td>
+      <td>${useMiles(product.precio)}</td>
     </tr>
   );
 };

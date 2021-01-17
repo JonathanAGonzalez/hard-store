@@ -8,9 +8,9 @@ import { firebase } from "../../firebase/index";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-  const db = firebase.firestore();
 
   useEffect(() => {
+    const db = firebase.firestore();
     const getData = async () => {
       const result = await db.collection("products").get();
       const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));

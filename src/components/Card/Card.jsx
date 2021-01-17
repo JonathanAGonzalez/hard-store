@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useMiles from "../../hooks/useMiles";
 import "./Card.scss";
 
 const Card = ({ nombre, imagen, precio, id }) => {
@@ -9,7 +10,7 @@ const Card = ({ nombre, imagen, precio, id }) => {
       <div className="Card-default-imagen">
         <img className="img-fluid" src={imagen} alt="Card Imagen" />
       </div>
-      <p className="Card-default-price">${precio}</p>
+      <p className="Card-default-price">${useMiles(precio)}</p>
       <Link to={`/detail/${id}`}>
         <button className="Card-default-btn">Ver mas</button>
       </Link>

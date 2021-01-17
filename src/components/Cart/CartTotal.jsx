@@ -9,8 +9,12 @@ const CartTotal = () => {
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    const allPrice = cartProduct.product.map((prod) => prod.product.precio);
+    const allPrice = cartProduct.product.map(
+      (prod) => prod.product.precio * prod.cantidad
+    );
+
     const totalPrice = allPrice.reduce((a, b) => a + b, 0);
+
     setPrice(totalPrice);
   }, [cartProduct]);
   return (

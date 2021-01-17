@@ -17,6 +17,7 @@ const SearchResult = () => {
 
   useEffect(() => {
     findProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResult]);
 
   return (
