@@ -1,7 +1,8 @@
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
-import CartTable from "./CartTable";
+import { Link } from "react-router-dom";
 import "./Cart.scss";
+import CartTable from "./CartTable";
 import CartTotal from "./CartTotal";
 const Cart = () => {
   const CartItem = useContext(CartContext);
@@ -34,6 +35,11 @@ const Cart = () => {
               </tbody>
             ))}
           </table>
+
+          <Link to="/checkout">
+            <button className="cart-btn-build mb-5">Finalizar Compra</button>
+          </Link>
+
           <CartTotal />
         </div>
       </div>

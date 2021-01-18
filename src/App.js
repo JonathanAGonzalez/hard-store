@@ -13,6 +13,8 @@ import Categories from "./components/Categories/Categories";
 import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
 import Admin from "./components/Admin/Admin";
+import Checkout from "./components/Checkout/Checkout";
+
 //ESTILOS
 import "./components/scss/App.scss";
 
@@ -60,6 +62,7 @@ function App() {
               <Route path="/categories" component={Categories} />
               <Route path="/cart" component={Cart} />
               <Route path="/admin" exact component={Admin} />
+              <Route path="/checkout" exact component={Checkout} />
               <Route path="*" component={Error404} />
             </Switch>
             <Footer />

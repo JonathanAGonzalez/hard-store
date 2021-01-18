@@ -12,5 +12,12 @@
         color: $color-font-orange;
       }
     }
+    &-build {
+      @include button-cian;
+      color: #222222;
+      &:hover {
+        color: #222222;
+      }
+    }
   }
 }

@@ -1,0 +1,44 @@
+.check {
+  &-card {
+    transform: translateX(0rem);
+    transition: ease-in-out 0.6s;
+    &-on {
+      transform: translateX(-80rem);
+      transition: ease-in-out 0.6s;
+    }
+    &-front {
+      width: 20vw;
+      position: relative;
+    }
+    &-numberback {
+      position: absolute;
+      bottom: 5rem;
+      left: 30px;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #222222;
+      text-shadow: 0px 1px 1px #f2f2f2;
+    }
+    &-back {
+      transform: translateX(0rem);
+      transition: ease-in-out 0.6s;
+      &-on {
+        transform: translateX(-80rem);
+        transition: ease-in-out 0.6s;
+      }
+      &-img {
+        width: 20vw;
+        position: relative;
+      }
+    }
+    &-number {
+      position: absolute;
+      bottom: 3rem;
+      left: 30px;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #f2f2f2;
+      text-shadow: 0px 1px 1px black;
+    }
+  }
+}
