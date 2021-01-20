@@ -6,20 +6,27 @@ import { firebase } from "../../firebase/index";
 
 const ItemDetailContainerProduct = () => {
   const [items, setItems] = useState([]);
+  const [result, setResult] = useState(true);
   const ids = useParams();
 
   useEffect(() => {
-    const getData = async () => {
-      const db = firebase.firestore();
-      const result = await db
-        .collection("products")
-        .where("id", "==", parseInt(ids.id))
-        .get();
-      const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      console.log(data);
-      setItems(data);
+    if (result) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const getData = async () => {
+        const db = firebase.firestore();
+        const dat = await db
+          .collection("products")
+          .where("id", "==", parseInt(ids.id))
+          .get();
+        const data = dat.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setItems(data);
+      };
+      getData();
+    }
+    return () => {
+      setResult(false);
     };
-    getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ids]);
 
   return items.length !== 0 ? (

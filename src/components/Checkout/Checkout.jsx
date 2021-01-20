@@ -2,35 +2,36 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
+import { firebase } from "../../firebase/index";
 import "./Checkout.scss";
+import Success from "../Success/Success";
 const Checkout = () => {
-  const [card, setCard] = useState("");
-  const [cardBack, setCardBack] = useState("");
   const [cartProduct, setCartProduct] = useContext(CartContext);
-  console.log(cartProduct);
+  const [access, setAccess] = useState(false);
+  const [id, setId] = useState("");
+  let date = new Date();
+  const [user, setUser] = useState({
+    name: "",
+    lastName: "",
+    phone: 0,
+    cardFront: "",
+    cardBack: "",
+    direccion: "",
+    fecha: date,
+    information: "",
+  });
+  const db = firebase.firestore();
 
-  const handleCard = (e) => {
-    const num = e.target.value;
-    if (num.length <= 16) {
-      setCard(e.target.value);
-    } else {
-      alert("Maximo 16 numeros de tarjeta");
-      setCard("");
-    }
-  };
-
-  const handleCardBack = (e) => {
-    const num = e.target.value;
-    if (num.length > 3) {
-      alert("El codigo de seguridad solo tiene 3 caracteres");
-      setCardBack("");
-    } else {
-      setCardBack(num);
-    }
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handlePurchase = (e) => {
     e.preventDefault();
+    const sales = { user, product: cartProduct.product };
     Swal.fire({
       title: "Estas seguro que queres finalizar la compra?",
       icon: "warning",
@@ -40,12 +41,26 @@ const Checkout = () => {
       confirmButtonText: "Si, comprar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Gracias por tu compra!", "www.hardstore.com.ar", "success");
+        db.collection("sales")
+          .add(sales)
+          .then(({ id }) => {
+            setId(id);
+            Swal.fire(
+              "Gracias por tu compra!",
+              "www.hardstore.com.ar",
+              "success"
+            );
+            setCartProduct({ qty: 0, product: [] });
+            setAccess(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     });
   };
 
-  return (
+  return access !== true ? (
     <div className="row justify-content-center">
       <div className="col-12 text-center">
         <Link to="/cart">
@@ -64,6 +79,7 @@ const Checkout = () => {
             name="name"
             className="col-12 input-form"
             required
+            onChange={(e) => handleChange(e)}
           />
           <label className="label-form">Nombre</label>
         </div>
@@ -71,9 +87,10 @@ const Checkout = () => {
         <div className="row mt-5 container-input">
           <input
             type="text"
-            name="last-name"
+            name="lastName"
             className="col-12 input-form"
             required
+            onChange={(e) => handleChange(e)}
           />
           <label className="label-form">Apellido</label>
         </div>
@@ -84,11 +101,12 @@ const Checkout = () => {
             name="phone"
             className="col-12 input-form"
             required
+            onChange={(e) => handleChange(e)}
           />
           <label className="label-form">Telefono</label>
         </div>
         <div className="row mt-5 d-flex justify-content-center align-items-center">
-          {card.length < 3 && (
+          {user.cardFront.length < 3 && (
             <h4>
               Coloca los 16 numeros de la tarjeta y los 3 numeros de seguridad
             </h4>
@@ -97,7 +115,7 @@ const Checkout = () => {
         <div className="row">
           <div
             className={
-              card.length >= 3
+              user.cardFront.length >= 3
                 ? "col-5 mt-5 check-card"
                 : "col-5 mt-5 check-card-on"
             }
@@ -107,13 +125,13 @@ const Checkout = () => {
               alt="tarjeta"
               className="check-card-front"
             />
-            <p className="check-card-number">{card}</p>
-            <small>{card.length}</small>
+            <p className="check-card-number">{user.cardFront}</p>
+            <small>{user.cardFront.length}</small>
           </div>
 
           <div
             className={
-              cardBack.length >= 2
+              user.cardBack.length >= 2
                 ? "col-5 mt-5 check-card-back"
                 : "col-5 mt-5 check-card-back-on"
             }
@@ -123,19 +141,23 @@ const Checkout = () => {
               alt="tarjeta"
               className="check-card-back-img"
             />
-            <p className="check-card-numberback">{cardBack}</p>
-            <small>{cardBack.length}</small>
+            <p className="check-card-numberback">{user.cardBack}</p>
+            <small>{user.cardBack.length}</small>
           </div>
         </div>
 
         <div className="row mt-5 container-input">
           <input
             type="number"
-            name="credit"
+            name="cardFront"
             className="col-12 input-form"
             required
-            value={card}
-            onChange={(e) => handleCard(e)}
+            value={user.cardFront}
+            onChange={(e) =>
+              e.target.value.length > 16
+                ? alert("Maximo 16 numeros")
+                : handleChange(e)
+            }
           />
           <label className="label-form">Nº Tarjeta de credito</label>
         </div>
@@ -143,11 +165,15 @@ const Checkout = () => {
         <div className="row mt-5 container-input">
           <input
             type="number"
-            name="cod"
+            name="cardBack"
             className="col-12 input-form"
             required
-            value={cardBack}
-            onChange={(e) => handleCardBack(e)}
+            value={user.cardBack}
+            onChange={(e) =>
+              e.target.value.length > 3
+                ? alert("Solamente 3 numeros")
+                : handleChange(e)
+            }
           />
           <label className="label-form">Codigo de seguridad</label>
         </div>
@@ -155,31 +181,22 @@ const Checkout = () => {
         <div className="row mt-5 container-input">
           <input
             type="text"
-            name="direction"
+            name="direccion"
             className="col-12 input-form"
             required
+            onChange={(e) => handleChange(e)}
           />
           <label className="label-form">Direccion de entrega</label>
         </div>
 
-        <div className="row mt-5 container-input">
-          <input
-            type="date"
-            name="date"
-            className="col-12 input-form"
-            required
-          />
-          <label className="label-form" style={{ top: "-8px" }}>
-            Fecha
-          </label>
-        </div>
         <div className="row form-label-container">
           <textarea
-            name="especificacion"
+            name="information"
             className="form-text-area mt-3 col-11"
             cols="20"
             rows="5"
             placeholder="Especificaciones"
+            onChange={(e) => handleChange(e)}
           ></textarea>
         </div>
 
@@ -197,6 +214,8 @@ const Checkout = () => {
         </div>
       </form>
     </div>
+  ) : (
+    <Success id={id} />
   );
 };
 

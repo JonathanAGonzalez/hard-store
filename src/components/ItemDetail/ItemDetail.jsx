@@ -22,7 +22,7 @@ const ItemDetail = ({
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
-
+  const suma = precio * cartProduct.qty;
   const addCart = () => {
     if (product && cartProduct.qty !== 0) {
       setCartProduct({
@@ -60,12 +60,13 @@ const ItemDetail = ({
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <h3>{nombre}</h3>
-            <p className="item-detail-price">${precio}</p>
+            <p className="item-detail-price">
+              ${cartProduct.qty === 0 ? precio : suma}
+            </p>
             <ul className="item-detail-ul">
               {id === parseInt(ids.id) &&
                 descripcion.map((element, index) => (
                   <li className="item-detail-li" key={index}>
-                    {" "}
                     {element}
                   </li>
                 ))}

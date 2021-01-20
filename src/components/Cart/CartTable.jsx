@@ -30,7 +30,7 @@ const CartTable = ({ product, cantidadProduct }) => {
         />
       </th>
       <td>{product.nombre}</td>
-      <td>${useMiles(product.precio)}</td>
+      <td>${useMiles(product.precio * cantidadProduct)}</td>
     </tr>
   );
 };

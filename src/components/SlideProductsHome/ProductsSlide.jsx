@@ -14,7 +14,6 @@ const ProductsSlide = () => {
     const getData = async () => {
       const result = await db.collection("products").get();
       const data = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-
       setItems(data);
     };
     getData();
