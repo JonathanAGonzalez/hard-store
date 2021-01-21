@@ -1,8 +1,12 @@
-import { Link, Redirect } from "react-router-dom";
 import { useState, useContext, memo } from "react";
+import { Link, Redirect } from "react-router-dom";
+//ICONO REACT
 import { RiArrowDropRightLine } from "react-icons/ri";
+//LIBRERIA ALERTA
 import Swal from "sweetalert2";
+// COMPONENTE
 import ItemCount from "../ItemCount/ItemCount";
+//ESTILOS
 import "./ItemDetail.scss";
 import "../ItemCount/ItemCount.scss";
 //CONTEXT
@@ -22,17 +26,22 @@ const ItemDetail = ({
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
+
   const suma = precio * cartProduct.qty;
+
   const addCart = () => {
     if (product && cartProduct.qty !== 0) {
       setCartProduct({
         ...cartProduct,
         product: [
           ...cartProduct.product,
-          { cantidad: cartProduct.qty, product: product },
+          {
+            cantidad: cartProduct.qty,
+            product: product,
+            precioTotal: product.precio * cartProduct.qty,
+          },
         ],
       });
-
       setMove(true);
     } else {
       Swal.fire({
@@ -88,10 +97,6 @@ const ItemDetail = ({
           <div className="col-12 col-lg-6 mt-5">
             <h5>Especificaciones:</h5>
             <p>{info}</p>
-            <ul>
-              {/*info !== undefined &&
-                info.map((element, index) => <li key={index}>{element} </li>)*/}
-            </ul>
           </div>
         </div>
         {move && <Redirect to="/cart" />}

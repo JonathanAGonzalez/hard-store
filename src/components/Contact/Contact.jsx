@@ -1,5 +1,8 @@
+//ESTILOS
 import "./Contact.scss";
+//LIBRERIA PARTICULAS
 import Particles from "react-particles-js";
+
 const Contact = () => {
   return (
     <div className="row my-5">

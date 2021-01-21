@@ -1,7 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./Cart.scss";
 import useMiles from "../../hooks/useMiles";
+import "./Cart.scss";
+
 const CartTotal = () => {
   const cartContext = useContext(CartContext);
   const [cartProduct] = cartContext;

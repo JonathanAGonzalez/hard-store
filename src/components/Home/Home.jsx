@@ -1,3 +1,4 @@
+//COMPONENTES
 import Slide from "../Carousel/Slide";
 import ItemDetailContainer from "../Products/ItemDetailContainer";
 import ProductsSlide from "../SlideProductsHome/ProductsSlide";

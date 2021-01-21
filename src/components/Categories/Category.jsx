@@ -1,8 +1,10 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { firebase } from "../../firebase/index";
+//COMPONENTES
 import Card from "../Card/Card";
 import Loading from "../Spinner/Spinner";
-import { firebase } from "../../firebase/index";
+
 const Category = () => {
   const category = useParams().section;
   const [products, setProducts] = useState([]);

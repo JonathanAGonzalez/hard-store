@@ -1,3 +1,4 @@
+//ESTILOS
 import "./ItemDetailContainer.scss";
 const ItemDetailContainer = ({ title, description, image }) => {
   return (

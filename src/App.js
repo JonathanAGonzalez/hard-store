@@ -14,10 +14,8 @@ import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
 import Admin from "./components/Admin/Admin";
 import Checkout from "./components/Checkout/Checkout";
-
 //ESTILOS
 import "./components/scss/App.scss";
-
 //CONTEXT
 import { CartContext } from "./context/CartContext";
 import { SearchContext } from "./context/SearchContext";
@@ -25,21 +23,23 @@ import SearchResult from "./components/SearchResult/SearchResult";
 
 function App() {
   const [widget, setWidget] = useState(false);
+  //ESTADO DEL PRODUCTO
   const [cartProduct, setCartProduct] = useState({ qty: 0, product: [] });
+  //ESTADO DEL BUSCADOR
   const [searchResult, setSearchResult] = useState([]);
 
   return (
     <SearchContext.Provider value={[searchResult, setSearchResult]}>
       <CartContext.Provider value={[cartProduct, setCartProduct]}>
         <Router>
-          {/* HEADER */}
+          {/* HEADER CONTIENE EL CARRITO(WIDGET) ESTA EN EL ARCHIVO CARTPERFIL */}
           <div className="container-app container-fluid">
             <div className="row">
               <div className="container-header col-12">
                 <Header widget={widget} setWidget={setWidget} />
               </div>
+              {/* COMPONENTE RESULTADO DEL BUSCADOR */}
               {searchResult.length !== 0 && <SearchResult />}
-
               {/* NAVBAR */}
               <div className="container-navbar col-12">
                 <NavBar
@@ -51,6 +51,7 @@ function App() {
                 />
               </div>
             </div>
+            {/* INICIO DE ROUTING */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route

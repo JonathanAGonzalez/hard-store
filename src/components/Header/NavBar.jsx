@@ -1,6 +1,7 @@
-import ListNavBar from "./ListNavBar";
 import { useState, memo } from "react";
 import { NavLink } from "react-router-dom";
+//COMPONENTE
+import ListNavBar from "./ListNavBar";
 import CartWidget from "../CartWidget/CartWidget";
 //SCSS
 import "./NavBar.scss";

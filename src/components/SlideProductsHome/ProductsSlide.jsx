@@ -1,14 +1,17 @@
 import { useState, useEffect, memo } from "react";
-import ProductItem from "./ProductItem";
-import Spinner from "../Spinner/Spinner";
+//ESTILOS
 import "./Scss/Product.scss";
 import "./Scss/new.scss";
+//COMPONENTES
+import ProductItem from "./ProductItem";
+import Spinner from "../Spinner/Spinner";
 import Carousel from "react-elastic-carousel";
+//FIREBASE
 import { firebase } from "../../firebase/index";
 
 const ProductsSlide = () => {
   const [items, setItems] = useState([]);
-
+  //LLAMADOS A LOS PRODUCTOS
   useEffect(() => {
     const db = firebase.firestore();
     const getData = async () => {
@@ -18,7 +21,7 @@ const ProductsSlide = () => {
     };
     getData();
   }, []);
-
+  //SETEO DE SLIDE
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2 },

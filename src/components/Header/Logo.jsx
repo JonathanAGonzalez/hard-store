@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 //REACT ICONS
 import { FiCpu } from "react-icons/fi";
 
-//COMPONENT LOGO
 const Logo = () => {
   return (
     <div className="order-1 col-8 order-md-1 col-md-4">

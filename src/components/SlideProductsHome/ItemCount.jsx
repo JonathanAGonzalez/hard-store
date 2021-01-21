@@ -1,9 +1,10 @@
 import { useState } from "react";
+//LIBRERIA DE ALERTAS
 import Swal from "sweetalert2";
 
-const ItemCount = ({ stock, initial, onAdd, id }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(1);
-
+  //FUNCION PARA AGREGAR CANTIDAD
   const addProduct = () => {
     if (quantity >= stock) {
       return Swal.fire({
@@ -15,7 +16,7 @@ const ItemCount = ({ stock, initial, onAdd, id }) => {
     }
     setQuantity(quantity + 1);
   };
-
+  //FUNCION PARA BORRAR CANTIDAD
   const removeProduct = () => {
     if (quantity <= initial) {
       return Swal.fire({

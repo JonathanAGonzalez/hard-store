@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import useMiles from "../../hooks/useMiles";
 import "./Cart.scss";
+
 const CartTable = ({ product, cantidadProduct }) => {
   const cartContext = useContext(CartContext);
   const [cartProduct, setCartProduct] = cartContext;

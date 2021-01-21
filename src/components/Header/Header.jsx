@@ -1,4 +1,4 @@
-//COMPONENT
+//COMPONENTES
 import Logo from "./Logo";
 import Search from "./Search";
 import CartPerfil from "./CartPerfil";

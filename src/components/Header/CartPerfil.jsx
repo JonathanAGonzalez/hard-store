@@ -1,10 +1,10 @@
+//HOOKS
 import { useContext, memo, useEffect, useState } from "react";
 //IMPORT REACT ICONS
 import { FaOpencart } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 //SCSS
 import "./Cart.scss";
-
 //COMPONENT
 import { CartContext } from "../../context/CartContext";
 
@@ -13,7 +13,7 @@ const CartPerfil = ({ widget, setWidget }) => {
   const [cartProduct] = CartItem;
   const [cartCount, setCartCount] = useState(0);
   const quantity = cartProduct.product.map((prod) => prod.cantidad);
-
+  //SUMA DEL CARRITO
   useEffect(() => {
     const totalQuantity = quantity.reduce((a, b) => a + b, 0);
     setCartCount(totalQuantity);

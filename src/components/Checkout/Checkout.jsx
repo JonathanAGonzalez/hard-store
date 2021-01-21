@@ -1,10 +1,16 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+//IMPORTO LIBRERIA
 import Swal from "sweetalert2";
+//CONTEXT
+import { CartContext } from "../../context/CartContext";
+//FIREBASE
 import { firebase } from "../../firebase/index";
+//ESTILOS
 import "./Checkout.scss";
+//COMPONENTE
 import Success from "../Success/Success";
+
 const Checkout = () => {
   const [cartProduct, setCartProduct] = useContext(CartContext);
   const [access, setAccess] = useState(false);
@@ -20,42 +26,57 @@ const Checkout = () => {
     fecha: date,
     information: "",
   });
-  const db = firebase.firestore();
 
+  const db = firebase.firestore();
+  //CAPTURO CAMBIOS EN EL FORMULARIO
   const handleChange = (e) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
   };
+  //AGREGO AL DOCUMENTO SALES LA INFO DEL FORMULARIO Y EL PRODUCTO EN CUESTION
 
   const handlePurchase = (e) => {
     e.preventDefault();
     const sales = { user, product: cartProduct.product };
+
+    //ALERTA DE CONFIRMACION
     Swal.fire({
-      title: "Estas seguro que queres finalizar la compra?",
+      title: "¿Finalizas la compra?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      cancelButtonColor: "#222222",
+      confirmButtonColor: "#d84727",
       confirmButtonText: "Si, comprar",
     }).then((result) => {
       if (result.isConfirmed) {
-        db.collection("sales")
-          .add(sales)
-          .then(({ id }) => {
-            setId(id);
-            Swal.fire(
-              "Gracias por tu compra!",
-              "www.hardstore.com.ar",
-              "success"
-            );
-            setCartProduct({ qty: 0, product: [] });
-            setAccess(true);
-          })
-          .catch((err) => {
-            console.log(err);
+        //CONFIRMA RESULTADO
+        if (cartProduct.product.length !== 0) {
+          db.collection("sales")
+            .add(sales)
+            .then(({ id }) => {
+              setId(id);
+              Swal.fire(
+                "Gracias por tu compra!",
+                "www.hardstore.com.ar",
+                "success"
+              );
+              setCartProduct({ qty: 0, product: [] });
+              setAccess(true);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          //CONFIRMA FALTA DE PRODUCTO
+          Swal.fire({
+            html: "Te falto agregar un producto",
+            confirmButtonColor: "#d84727",
+            icon: "warning",
+            footer: '<a href="/cart"><h4>Ir al carrito...🛒<h4/></a> ',
           });
+        }
       }
     });
   };
@@ -64,7 +85,7 @@ const Checkout = () => {
     <div className="row justify-content-center">
       <div className="col-12 text-center">
         <Link to="/cart">
-          <p> Volver al carrito...</p>
+          <p> Volver al carrito... 🛒 </p>
         </Link>
       </div>
 
