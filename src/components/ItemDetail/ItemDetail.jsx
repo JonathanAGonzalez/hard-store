@@ -82,7 +82,12 @@ const ItemDetail = ({
             </ul>
             <div className="row justify-content-around">
               <ItemCount stock={3} initial={1} />
-              <button className="item-detail-btn col-5">Comprar</button>
+              <button
+                className="item-detail-btn col-5"
+                onClick={() => addCart()}
+              >
+                Comprar
+              </button>
               <button
                 className="item-detail-btn col-5"
                 onClick={() => addCart()}

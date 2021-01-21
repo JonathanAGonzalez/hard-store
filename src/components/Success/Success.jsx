@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { firebase } from "../../firebase/index";
 //COMPONENTE
 import { Spinner } from "react-bootstrap";
+import ItemSuccess from "./ItemSuccess";
 //ESTILOS
 import "./Success.scss";
 
@@ -33,9 +34,11 @@ const Success = ({ id }) => {
         </p>
       </div>
       <div className="row">
-        <div className="col-12 text-center">
+        <div className="success-detail col-12 text-center">
           <h3>Detalle de tu compra:</h3>
-          {user.product.map((e) => console.log(e.precioTotal))}
+          {user.product.map((e, index) => (
+            <ItemSuccess key={index} item={e} />
+          ))}
         </div>
       </div>
     </div>
