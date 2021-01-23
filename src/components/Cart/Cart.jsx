@@ -7,6 +7,7 @@ import CartTotal from "./CartTotal";
 const Cart = () => {
   const CartItem = useContext(CartContext);
   const [cartProduct] = CartItem;
+  console.log(cartProduct);
   return (
     <div>
       <div>
@@ -36,10 +37,11 @@ const Cart = () => {
             ))}
           </table>
 
-          <Link to="/checkout">
-            <button className="cart-btn-build mb-5">Finalizar Compra</button>
-          </Link>
-
+          {cartProduct.product.length !== 0 && (
+            <Link to="/checkout">
+              <button className="cart-btn-build mb-5">Finalizar Compra</button>
+            </Link>
+          )}
           <CartTotal />
         </div>
       </div>

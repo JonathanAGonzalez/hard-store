@@ -1,44 +1,176 @@
 .check {
   &-card {
-    transform: translateX(0rem);
-    transition: ease-in-out 0.6s;
-    &-on {
-      transform: translateX(-80rem);
-      transition: ease-in-out 0.6s;
-    }
     &-front {
-      width: 20vw;
-      position: relative;
-    }
-    &-numberback {
-      position: absolute;
-      bottom: 5rem;
-      left: 30px;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      color: #222222;
-      text-shadow: 0px 1px 1px #f2f2f2;
-    }
-    &-back {
-      transform: translateX(0rem);
-      transition: ease-in-out 0.6s;
       &-on {
-        transform: translateX(-80rem);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 50%;
         transition: ease-in-out 0.6s;
       }
+      &-off {
+        width: 0;
+      }
       &-img {
-        width: 20vw;
-        position: relative;
+        width: 60%;
+      }
+      &-number {
+        position: absolute;
+        bottom: 10px;
+        left: 23%;
+        font-size: 1rem;
+        color: #f2f2f2;
       }
     }
-    &-number {
-      position: absolute;
-      bottom: 3rem;
-      left: 30px;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      color: #f2f2f2;
-      text-shadow: 0px 1px 1px black;
+    &-back {
+      &-on {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        transition: ease-in-out 0.6s;
+      }
+      &-off {
+        width: 0;
+      }
+      &-img {
+        width: 60%;
+      }
+      &-number {
+        position: absolute;
+        bottom: 30%;
+        left: 25%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .check {
+    &-card {
+      &-front {
+        &-on {
+          display: flex;
+          justify-content: center;
+          &-img {
+            width: 50%;
+          }
+        }
+        &-number {
+          bottom: 0px;
+          left: 105px;
+          font-size: 1.7rem;
+          color: #f2f2f2;
+        }
+
+        &-back {
+          &-img {
+            width: 50%;
+          }
+          &-number {
+            bottom: 35%;
+            left: 20px;
+            font-size: 1.2rem;
+            color: #222222;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .check {
+    &-card {
+      &-front {
+        &-on {
+          display: flex;
+          justify-content: center;
+          &-img {
+            width: 50%;
+          }
+        }
+        &-number {
+          bottom: 0px;
+          left: 105px;
+          font-size: 1.7rem;
+          color: #f2f2f2;
+        }
+
+        &-back {
+          &-img {
+            width: 50%;
+          }
+          &-number {
+            bottom: 35%;
+            left: 20px;
+            font-size: 1.2rem;
+            color: #222222;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .check {
+    &-card {
+      &-front {
+        &-on {
+          display: flex;
+          justify-content: center;
+          &-img {
+            width: 50%;
+          }
+        }
+        &-number {
+          bottom: 37px;
+          left: 170px;
+          font-size: 1.7rem;
+          color: #f2f2f2;
+        }
+
+        &-back {
+          &-img {
+            width: 50%;
+          }
+          &-number {
+            bottom: 35%;
+            left: 20px;
+            font-size: 1.2rem;
+            color: #222222;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 414px) {
+  .check {
+    &-card {
+      &-front {
+        &-img {
+          width: 100%;
+        }
+        &-number {
+          bottom: 30px;
+          left: 20px;
+          font-size: 1.7rem;
+          color: #f2f2f2;
+        }
+      }
+      &-back {
+        &-img {
+          width: 100%;
+        }
+        &-number {
+          bottom: 35%;
+          left: 20px;
+          font-size: 1.2rem;
+          color: #222222;
+        }
+      }
     }
   }
 }

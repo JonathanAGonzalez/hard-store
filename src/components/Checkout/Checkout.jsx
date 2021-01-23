@@ -137,24 +137,23 @@ const Checkout = () => {
           <div
             className={
               user.cardFront.length >= 3
-                ? "col-5 mt-5 check-card"
-                : "col-5 mt-5 check-card-on"
+                ? "mt-5 check-card-front-on"
+                : "mt-5 check-card-front-off"
             }
           >
             <img
               src="/assets/images/card/cardFront.png"
               alt="tarjeta"
-              className="check-card-front"
+              className="check-card-front-img"
             />
-            <p className="check-card-number">{user.cardFront}</p>
-            <small>{user.cardFront.length}</small>
+            <p className="check-card-front-number">{user.cardFront}</p>
           </div>
 
           <div
             className={
               user.cardBack.length >= 2
-                ? "col-5 mt-5 check-card-back"
-                : "col-5 mt-5 check-card-back-on"
+                ? "mt-5 check-card-back-on"
+                : "mt-5 check-card-back-off"
             }
           >
             <img
@@ -162,8 +161,7 @@ const Checkout = () => {
               alt="tarjeta"
               className="check-card-back-img"
             />
-            <p className="check-card-numberback">{user.cardBack}</p>
-            <small>{user.cardBack.length}</small>
+            <p className="check-card-back-number">{user.cardBack}</p>
           </div>
         </div>
 

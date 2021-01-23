@@ -37,16 +37,16 @@ const ItemCount = ({ stock, initial }) => {
       <div className="card-count d-flex mb-5">
         <button
           className="card-count-btn"
-          onClick={() => addProduct(cartProduct.qty + 1)}
+          onClick={() => removeProduct(cartProduct.qty - 1)}
         >
-          +
+          -
         </button>
         <span className="card-count-qty">{cartProduct.qty}</span>
         <button
           className="card-count-btn"
-          onClick={() => removeProduct(cartProduct.qty - 1)}
+          onClick={() => addProduct(cartProduct.qty + 1)}
         >
-          -
+          +
         </button>
       </div>
     </>

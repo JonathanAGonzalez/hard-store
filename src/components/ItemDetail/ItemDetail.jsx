@@ -86,13 +86,13 @@ const ItemDetail = ({
                 className="item-detail-btn col-5"
                 onClick={() => addCart()}
               >
-                Comprar
+                Agregar al carrito
               </button>
               <button
                 className="item-detail-btn col-5"
                 onClick={() => addCart()}
               >
-                Agregar al carrito
+                Comprar
               </button>
             </div>
           </div>
