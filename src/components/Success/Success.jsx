@@ -24,8 +24,10 @@ const Success = ({ id }) => {
       <div className="success col-12 text-center">
         <h1 className="success-h1">¡Compra Exitosa!</h1>
         <p className="mt-4">
-          Tu numero de seguimiento es:
-          <strong className="success-strong">{id}</strong>
+          <p className="success-p">
+            Tu código de seguimiento es:
+            <strong className="success-strong">{id}</strong>
+          </p>
         </p>
         <p className="mt-4">
           <strong className="success-strong">

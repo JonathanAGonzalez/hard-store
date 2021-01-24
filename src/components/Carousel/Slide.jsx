@@ -25,18 +25,12 @@ const Slide = ({ slide1, slide2, slide3, slidebtn3 }) => {
           <img className="d-block w-100" src={image} alt="First slide" />
           <div className="carousel-caption d-none d-md-block">
             <h5>{slide1}</h5>
-            <Link to={`/detail/5`}>
-              <button className="carousel-btn">VER PRODUCTO</button>
-            </Link>
           </div>
         </div>
         <div className="carousel-item">
           <img className="d-block w-100" src={image2} alt="Second slide" />
           <div className="carousel-caption  d-none d-md-block">
             <h5>{slide2}</h5>
-            <Link to={`/detail/6`}>
-              <button className="carousel-btn">VER PRODUCTO</button>
-            </Link>
           </div>
         </div>
         <div className="carousel-item">

@@ -1,33 +1,59 @@
-<h1 align="center">Hi 👋, I'm Jonathan Gonzalez</h1>
-<h3 align="center">A passionate frontend developer from Argentina</h3>
+# Hi 👋, I'm Jonathan Gonzalez
+
+A passionate frontend developer **From Argentina**. This app was made as a project from the Coderhouse course developed with React JS and Firebase for saving products This app is still in development simply this is a **BETA** to present in the course
+
+# How to run this app
+
+Clone this project with command
+
+- **Git clone** https://github.com/JonathanAGonzalez/hard-store
+- Inside the folder run the command **npm install**
+- To run the project run in the console **npm start**
+
+## Dependencies
+
+"bootstrap": "^4.5.3",
+"firebase": "^8.2.2",
+"jquery": "^3.5.1",
+"node-sass": "4.14.1",
+"popper.js": "^1.16.1",
+"react": "^17.0.1",
+"react-bootstrap": "^1.4.0",
+"react-dom": "^17.0.1",
+"react-elastic-carousel": "^0.10.0",
+"react-icons": "^4.1.0",
+"react-particles-js": "^3.4.1",
+"react-router-dom": "^5.2.0",
+"react-scripts": "4.0.1",
+"styled-components": "^5.2.1",
+"sweetalert2": "^10.12.5",
+"web-vitals": "^0.2.4"
+
+## Information about me
 
 - 🔭 I’m currently working on [Ecommerce HardStore](https://github.com/JonathanAGonzalez/hard-store)
-
 - 🌱 I’m currently learning **React with Firebase**
-
 - 👨‍💻 All of my projects are available at [https://github.com/JonathanAGonzalez](https://github.com/JonathanAGonzalez)
-
 - 💬 Ask me about **React,Nodejs,Express,Javascript**
-
-- 📫 How to reach me **Jonathang@hotmail.com.ar**
-
-- 📄 Know about my experiences [https://drive.google.com/file/d/1Hn3zgOkWPXCOxUh7Fd8BRWwMn3dkKoyw/view?usp=sharing](https://drive.google.com/file/d/1Hn3zgOkWPXCOxUh7Fd8BRWwMn3dkKoyw/view?usp=sharing)
-
+- 📫 How to reach me **[Jonathang@hotmail.com.ar](mailto:Jonathang@hotmail.com.ar)**
+- 📄 Know about my experiences [https://drive.google.com/file/d/13-EyYjBwqWiyEo2RrJPPW26ialvgZRKq/view?usp=sharing](https://drive.google.com/file/d/13-EyYjBwqWiyEo2RrJPPW26ialvgZRKq/view?usp=sharing)
 - ⚡ Fun fact **I really like movies**
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/jonathanantoniogonzalez" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="jonathanantoniogonzalez" height="30" width="40" /></a>
-</p>
+## Contact me
 
-- **Browsing my website **
+**Linkedin**
+[<img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="jonathanantoniogonzalez" height="30" width="40" />](https://www.linkedin.com/in/jonathanantoniogonzalez/)
+
+## Browsing my website
 
 ![](https://media4.giphy.com/media/9s1E78Ny9eZvZcr3IP/giphy.gif)
 
+## Gratitude
 
+Many thanks to CoderHouse for this very complete course
 
+below I attach a link to the course ( CLICK IMAGE )
 
+[<img align="center" src="https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/f_auto/v1557348830/coderhouse_avkeo7.svg" alt="Coderhouse" height="100" width="390" />](https://www.coderhouse.com/online/reactjs)
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://babeljs.io/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/bootstrap/bootstrap-plain.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://webpack.js.org" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/webpack/webpack-original.svg" alt="webpack" width="40" height="40"/> </a> </p>
-
+THANKS

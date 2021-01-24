@@ -24,7 +24,11 @@ import SearchResult from "./components/SearchResult/SearchResult";
 function App() {
   const [widget, setWidget] = useState(false);
   //ESTADO DEL PRODUCTO
-  const [cartProduct, setCartProduct] = useState({ qty: 0, product: [] });
+  const [cartProduct, setCartProduct] = useState({
+    qty: 1,
+    product: [],
+    outStock: false,
+  });
   //ESTADO DEL BUSCADOR
   const [searchResult, setSearchResult] = useState([]);
 

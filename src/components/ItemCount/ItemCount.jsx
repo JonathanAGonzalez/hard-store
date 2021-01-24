@@ -7,12 +7,13 @@ import { CartContext } from "../../context/CartContext";
 
 const ItemCount = ({ stock, initial }) => {
   const [cartProduct, setCartProduct] = useContext(CartContext);
+
   //AGREGO PRODUCTO AL CARRITO
   const addProduct = () => {
     if (cartProduct.qty >= stock) {
       return Swal.fire({
         title: "UPS!😓",
-        text: "No me queda mas en stock",
+        text: "No tenemos stock de este producto",
         icon: "error",
         confirmButtonText: "Ok",
       });

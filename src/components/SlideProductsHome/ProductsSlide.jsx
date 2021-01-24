@@ -34,7 +34,6 @@ const ProductsSlide = () => {
       <h3 className="product-slide-h3">Productos Nuevos</h3>
       <Carousel
         initialActiveIndex={0}
-        easing="cubic-bezier(1,.15,.55,1.54)"
         tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
         transitionMs={700}
         breakPoints={breakPoints}

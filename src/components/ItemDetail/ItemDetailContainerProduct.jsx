@@ -14,6 +14,7 @@ const ItemDetailContainerProduct = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       const getData = async () => {
         const db = firebase.firestore();
+
         const dat = await db
           .collection("products")
           .where("id", "==", parseInt(ids.id))

@@ -7,7 +7,6 @@ import CartTotal from "./CartTotal";
 const Cart = () => {
   const CartItem = useContext(CartContext);
   const [cartProduct] = CartItem;
-  console.log(cartProduct);
   return (
     <div>
       <div>

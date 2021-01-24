@@ -1,7 +1,9 @@
-import { useState, useContext, memo } from "react";
+import { useState, useContext, memo, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 //ICONO REACT
 import { RiArrowDropRightLine } from "react-icons/ri";
+//FIREBASE
+import { firebase } from "../../firebase/index";
 //LIBRERIA ALERTA
 import Swal from "sweetalert2";
 // COMPONENTE
@@ -26,8 +28,25 @@ const ItemDetail = ({
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
   const [move, setMove] = useState(false);
-
+  const [succes, setSucces] = useState(false);
+  const [stock, setStock] = useState(0);
   const suma = precio * cartProduct.qty;
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    const getStock = async () => {
+      const prod = await db.collection("products").get();
+      const data = prod.docs.filter(
+        (e) => e.data().id === id && e.data().stock
+      );
+      setStock(data[0].data().stock);
+    };
+    getStock();
+    return () => {
+      setStock(0);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ids]);
 
   const addCart = () => {
     if (product && cartProduct.qty !== 0) {
@@ -42,7 +61,10 @@ const ItemDetail = ({
           },
         ],
       });
-      setMove(true);
+      setSucces(true);
+      setTimeout(() => {
+        setSucces(false);
+      }, 2500);
     } else {
       Swal.fire({
         icon: "error",
@@ -50,7 +72,6 @@ const ItemDetail = ({
       });
     }
   };
-
   return (
     id === ids && (
       <>
@@ -69,6 +90,14 @@ const ItemDetail = ({
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <h3>{nombre}</h3>
+            {succes ? (
+              <div className="alert alert-success" role="alert">
+                Producto agregado
+              </div>
+            ) : (
+              ""
+            )}
+
             <p className="item-detail-price">
               ${cartProduct.qty === 0 ? precio : suma}
             </p>
@@ -81,7 +110,7 @@ const ItemDetail = ({
                 ))}
             </ul>
             <div className="row justify-content-around">
-              <ItemCount stock={3} initial={1} />
+              <ItemCount stock={stock} initial={1} />
               <button
                 className="item-detail-btn col-5"
                 onClick={() => addCart()}
@@ -90,7 +119,7 @@ const ItemDetail = ({
               </button>
               <button
                 className="item-detail-btn col-5"
-                onClick={() => addCart()}
+                onClick={() => setMove(true)}
               >
                 Comprar
               </button>
@@ -104,7 +133,7 @@ const ItemDetail = ({
             <p>{info}</p>
           </div>
         </div>
-        {move && <Redirect to="/cart" />}
+        {move && <Redirect to="/checkout" />}
       </>
     )
   );
