@@ -12,22 +12,22 @@ Clone this project with command
 
 ## Dependencies
 
-"bootstrap": "^4.5.3",
-"firebase": "^8.2.2",
-"jquery": "^3.5.1",
-"node-sass": "4.14.1",
-"popper.js": "^1.16.1",
-"react": "^17.0.1",
-"react-bootstrap": "^1.4.0",
-"react-dom": "^17.0.1",
-"react-elastic-carousel": "^0.10.0",
-"react-icons": "^4.1.0",
-"react-particles-js": "^3.4.1",
-"react-router-dom": "^5.2.0",
-"react-scripts": "4.0.1",
-"styled-components": "^5.2.1",
-"sweetalert2": "^10.12.5",
-"web-vitals": "^0.2.4"
+- "bootstrap": "^4.5.3",
+- "firebase": "^8.2.2",
+- "jquery": "^3.5.1",
+- "node-sass": "4.14.1",
+- "popper.js": "^1.16.1",
+- "react": "^17.0.1",
+- "react-bootstrap": "^1.4.0",
+- "react-dom": "^17.0.1",
+- "react-elastic-carousel": "^0.10.0",
+- "react-icons": "^4.1.0",
+- "react-particles-js": "^3.4.1",
+- "react-router-dom": "^5.2.0",
+- "react-scripts": "4.0.1",
+- "styled-components": "^5.2.1",
+- "sweetalert2": "^10.12.5",
+- "web-vitals": "^0.2.4"
 
 ## Information about me
 
