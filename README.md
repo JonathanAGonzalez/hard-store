@@ -1,6 +1,6 @@
 # Hi 👋, I'm Jonathan Gonzalez
 
-A passionate frontend developer **From Argentina**. This app was made as a project from the Coderhouse course developed with React JS and Firebase for saving products This app is still in development simply this is a **BETA** to present in the course
+A passionate frontend developer **From Argentina**. This app was made as a project from the Coderhouse course developed with React JS and Firebase for saving products. This app is still in development simply this is a **BETA** to present in the course
 
 # How to run this app
 
