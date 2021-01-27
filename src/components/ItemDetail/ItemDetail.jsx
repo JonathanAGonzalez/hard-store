@@ -72,6 +72,32 @@ const ItemDetail = ({
       });
     }
   };
+
+  const buy = () => {
+    if (product && cartProduct.qty !== 0) {
+      setCartProduct({
+        ...cartProduct,
+        product: [
+          ...cartProduct.product,
+          {
+            cantidad: cartProduct.qty,
+            product: product,
+            precioTotal: product.precio * cartProduct.qty,
+          },
+        ],
+      });
+      setSucces(true);
+      setMove(true);
+      setTimeout(() => {
+        setSucces(false);
+      }, 2500);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Te olvidaste de poner una cantidad",
+      });
+    }
+  };
   return (
     id === ids && (
       <>
@@ -117,10 +143,7 @@ const ItemDetail = ({
               >
                 Agregar al carrito
               </button>
-              <button
-                className="item-detail-btn col-5"
-                onClick={() => setMove(true)}
-              >
+              <button className="item-detail-btn col-5" onClick={() => buy()}>
                 Comprar
               </button>
             </div>
