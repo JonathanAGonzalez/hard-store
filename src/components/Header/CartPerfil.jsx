@@ -13,7 +13,7 @@ const CartPerfil = ({ widget, setWidget }) => {
   const CartItem = useContext(CartContext);
   const [cartProduct] = CartItem;
   const [cartCount, setCartCount] = useState(0);
-  const quantity = cartProduct.product.map((prod) => prod.cantidad);
+  const quantity = cartProduct.product.map((prod) => prod.cantidadProducto);
   //SUMA DEL CARRITO
   useEffect(() => {
     const totalQuantity = quantity.reduce((a, b) => a + b, 0);

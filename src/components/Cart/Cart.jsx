@@ -29,7 +29,7 @@ const Cart = () => {
               <tbody key={index}>
                 <CartTable
                   key={index}
-                  product={product.product}
+                  product={product}
                   cantidadProduct={product.cantidad}
                 />
               </tbody>

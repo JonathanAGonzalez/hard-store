@@ -1,13 +1,11 @@
 import { useState, useContext, memo, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 //ICONO REACT
 import { RiArrowDropRightLine } from "react-icons/ri";
 //FIREBASE
 import { firebase } from "../../firebase/index";
 //LIBRERIA ALERTA
 import Swal from "sweetalert2";
-// COMPONENTE
-import ItemCount from "../ItemCount/ItemCount";
 //ESTILOS
 import "./ItemDetail.scss";
 import "../ItemCount/ItemCount.scss";
@@ -22,18 +20,22 @@ const ItemDetail = ({
   imagen,
   info,
   category,
-  product,
   ids,
+  product,
 }) => {
   const CartItems = useContext(CartContext);
   const [cartProduct, setCartProduct] = CartItems;
-  const [move, setMove] = useState(false);
   const [succes, setSucces] = useState(false);
   const [stock, setStock] = useState(0);
-  const suma = precio * cartProduct.qty;
+  const [count, setCount] = useState(1);
+  const suma = precio * count;
+  const history = useHistory();
+  const actualId = id;
+  const exist = cartProduct.product.some((items) => items.id === actualId);
 
   useEffect(() => {
     const db = firebase.firestore();
+
     const getStock = async () => {
       const prod = await db.collection("products").get();
       const data = prod.docs.filter(
@@ -48,56 +50,93 @@ const ItemDetail = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ids]);
 
+  //AGREGO PRODUCTO AL CARRITO
+  const addProduct = () => {
+    if (cartProduct.qty >= stock) {
+      return Swal.fire({
+        title: "UPS!😓",
+        text: "No tenemos stock de este producto",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
+
+    if (count < stock) {
+      setCount(count + 1);
+    }
+  };
+  //SACO UN PRODUCTO DEL CARRITO
+  const removeProduct = () => {
+    if (count <= 1) {
+      return Swal.fire({
+        title: "Woow!",
+        text: "Tenes que tener al menos un producto agregado",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
+    setCount(count - 1);
+  };
+
   const addCart = () => {
-    if (product && cartProduct.qty !== 0) {
+    if (exist) {
+      const productosCarrito = cartProduct.product.map((producto) => {
+        if (producto.id === id) {
+          producto.cantidadProducto += count;
+          producto.precioTotal = producto.precio * producto.cantidadProducto;
+          return producto;
+        } else {
+          return producto;
+        }
+      });
+      setCartProduct({
+        ...cartProduct,
+        product: productosCarrito,
+      });
+      setSucces(true);
+
+      setTimeout(() => {
+        setSucces(false);
+      }, 2000);
+    } else {
       setCartProduct({
         ...cartProduct,
         product: [
           ...cartProduct.product,
-          {
-            cantidad: cartProduct.qty,
-            product: product,
-            precioTotal: product.precio * cartProduct.qty,
-          },
+          { ...product, cantidadProducto: count, precioTotal: suma },
         ],
-      });
-      setSucces(true);
-      setTimeout(() => {
-        setSucces(false);
-      }, 2500);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Te olvidaste de poner una cantidad",
       });
     }
   };
 
   const buy = () => {
-    if (product && cartProduct.qty !== 0) {
+    if (exist) {
+      const productosCarrito = cartProduct.product.map((producto) => {
+        if (producto.id === id) {
+          producto.cantidadProducto += count;
+          producto.precioTotal = producto.precio * producto.cantidadProducto;
+          return producto;
+        } else {
+          return producto;
+        }
+      });
+      setCartProduct({
+        ...cartProduct,
+        product: productosCarrito,
+      });
+      history.push("/cart");
+    } else {
       setCartProduct({
         ...cartProduct,
         product: [
           ...cartProduct.product,
-          {
-            cantidad: cartProduct.qty,
-            product: product,
-            precioTotal: product.precio * cartProduct.qty,
-          },
+          { ...product, cantidadProducto: count, precioTotal: suma },
         ],
       });
-      setSucces(true);
-      setMove(true);
-      setTimeout(() => {
-        setSucces(false);
-      }, 2500);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Te olvidaste de poner una cantidad",
-      });
     }
+    history.push("/cart");
   };
+
   return (
     id === ids && (
       <>
@@ -124,9 +163,7 @@ const ItemDetail = ({
               ""
             )}
 
-            <p className="item-detail-price">
-              ${cartProduct.qty === 0 ? precio : suma}
-            </p>
+            <p className="item-detail-price">${count === 1 ? precio : suma}</p>
             <ul className="item-detail-ul">
               {id === parseInt(ids.id) &&
                 descripcion.map((element, index) => (
@@ -136,14 +173,24 @@ const ItemDetail = ({
                 ))}
             </ul>
             <div className="row justify-content-around">
-              <ItemCount stock={stock} initial={1} />
-              <button
-                className="item-detail-btn col-5"
-                onClick={() => addCart()}
-              >
+              <>
+                <div className="card-count d-flex mb-5">
+                  <button className="card-count-btn" onClick={removeProduct}>
+                    -
+                  </button>
+
+                  <span className="card-count-qty">{count}</span>
+
+                  <button className="card-count-btn" onClick={addProduct}>
+                    +
+                  </button>
+                </div>
+              </>
+
+              <button className="item-detail-btn col-5" onClick={addCart}>
                 Agregar al carrito
               </button>
-              <button className="item-detail-btn col-5" onClick={() => buy()}>
+              <button className="item-detail-btn col-5" onClick={buy}>
                 Comprar
               </button>
             </div>
@@ -156,7 +203,6 @@ const ItemDetail = ({
             <p>{info}</p>
           </div>
         </div>
-        {move && <Redirect to="/checkout" />}
       </>
     )
   );

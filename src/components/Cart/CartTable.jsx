@@ -8,10 +8,9 @@ const CartTable = ({ product, cantidadProduct }) => {
   const [cartProduct, setCartProduct] = cartContext;
 
   const deleteProduct = (id) => {
-    const filter = cartProduct.product.filter((prod) => prod.product.id !== id);
+    const filter = cartProduct.product.filter((prod) => prod.id !== id);
     setCartProduct({ ...cartProduct, product: filter });
   };
-
   return (
     <tr>
       <th scope="row">
@@ -22,7 +21,7 @@ const CartTable = ({ product, cantidadProduct }) => {
           Delete
         </button>
       </th>
-      <th>{cantidadProduct}</th>
+      <th>{product.cantidadProducto}</th>
       <th>
         <img
           src={product.imagen}
@@ -31,7 +30,7 @@ const CartTable = ({ product, cantidadProduct }) => {
         />
       </th>
       <td>{product.nombre}</td>
-      <td>${useMiles(product.precio * cantidadProduct)}</td>
+      <td>${useMiles(product.precioTotal)}</td>
     </tr>
   );
 };

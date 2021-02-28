@@ -11,12 +11,14 @@ const CartTotal = () => {
 
   useEffect(() => {
     const allPrice = cartProduct.product.map(
-      (prod) => prod.product.precio * prod.cantidad
+      (prod) => prod.precio * prod.cantidadProducto
     );
 
     const totalPrice = allPrice.reduce((a, b) => a + b, 0);
 
-    setPrice(totalPrice);
+    setPrice(totalPrice); 
+
+
   }, [cartProduct]);
   return (
     <div>

@@ -5,7 +5,7 @@ import { useContext, memo } from "react";
 //CONTEXT
 import { CartContext } from "../../context/CartContext";
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, count, setCount }) => {
   const [cartProduct, setCartProduct] = useContext(CartContext);
 
   //AGREGO PRODUCTO AL CARRITO
@@ -18,11 +18,17 @@ const ItemCount = ({ stock, initial }) => {
         confirmButtonText: "Ok",
       });
     }
-    setCartProduct({ ...cartProduct, qty: cartProduct.qty + 1 });
+    if (count < stock) {
+      setCount(count + 1);
+      setCartProduct({
+        ...cartProduct,
+        qty: count + 1,
+      });
+    }
   };
   //SACO UN PRODUCTO DEL CARRITO
   const removeProduct = () => {
-    if (cartProduct.qty <= initial) {
+    if (count <= 1) {
       return Swal.fire({
         title: "Woow!",
         text: "Tenes que tener al menos un producto agregado",
@@ -30,23 +36,23 @@ const ItemCount = ({ stock, initial }) => {
         confirmButtonText: "Ok",
       });
     }
-    setCartProduct({ ...cartProduct, qty: cartProduct.qty - 1 });
+    setCount(count - 1);
+    setCartProduct({
+      ...cartProduct,
+      qty: count - 1,
+    });
   };
 
   return (
     <>
       <div className="card-count d-flex mb-5">
-        <button
-          className="card-count-btn"
-          onClick={() => removeProduct(cartProduct.qty - 1)}
-        >
+        <button className="card-count-btn" onClick={removeProduct}>
           -
         </button>
-        <span className="card-count-qty">{cartProduct.qty}</span>
-        <button
-          className="card-count-btn"
-          onClick={() => addProduct(cartProduct.qty + 1)}
-        >
+
+        <span className="card-count-qty">{count}</span>
+
+        <button className="card-count-btn" onClick={addProduct}>
           +
         </button>
       </div>

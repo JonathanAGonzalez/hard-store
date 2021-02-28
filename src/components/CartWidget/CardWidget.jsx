@@ -4,11 +4,14 @@ import { WidgetItem } from "./WidgetItem";
 
 const CardWidget = () => {
   const [cartProduct] = useContext(CartContext);
+
   return (
     <>
-      {cartProduct.product.map((prod, index) => (
-        <WidgetItem key={index} prod={prod.product} />
-      ))}
+      {cartProduct.product.map(prod=>
+        <WidgetItem key={prod.id} producto={prod}/>
+        
+        )}
+      
     </>
   );
 };
