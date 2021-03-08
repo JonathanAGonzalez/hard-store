@@ -48,12 +48,4 @@ Clone this project with command
 
 ![](https://media4.giphy.com/media/9s1E78Ny9eZvZcr3IP/giphy.gif)
 
-## Gratitude
 
-Many thanks to CoderHouse for this very complete course
-
-below I attach a link to the course ( CLICK IMAGE )
-
-[<img align="center" src="https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/f_auto/v1557348830/coderhouse_avkeo7.svg" alt="Coderhouse" height="100" width="390" />](https://www.coderhouse.com/online/reactjs)
-
-THANKS
